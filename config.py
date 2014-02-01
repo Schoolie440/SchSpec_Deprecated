@@ -20,12 +20,13 @@ OPENID_PROVIDERS = [
 # WHOOSH_BASE = os.path.join(basedir, 'search.db')
 
 # email server
-# MAIL_SERVER = 'your.mailserver.com'
-# MAIL_PORT = 25
-# MAIL_USE_TLS = False
-# MAIL_USE_SSL = False
-# MAIL_USERNAME = 'you'
-# MAIL_PASSWORD = 'your-password'
+MAIL_SERVER='smtp.gmail.com'
+MAIL_PORT=465
+MAIL_USE_TLS = False
+MAIL_USE_SSL= True
+MAIL_USERNAME = 'brian.p.schoolcraft@gmail.com'
+MAIL_PASSWORD = 'uuzjefbvsayddijh'
+
 
 # administrator list
 ADMINS = ['you@example.com']
