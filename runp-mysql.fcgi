@@ -7,9 +7,9 @@ import os
 from flup.server.fcgi import WSGIServer
 from app import app
 
-from werkzeug.debug import DebuggedApplication 
+# from werkzeug.debug import DebuggedApplication 
 
-application = DebuggedApplication(app, True)
+# application = DebuggedApplication(app, True)
 
 if __name__ == '__main__':
     WSGIServer(app).run()
