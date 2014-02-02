@@ -2,10 +2,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col-md-3">
-  <div class="well">
-    This is the home of Schoolcraft Specialties.
-  </div>
+<div class="jumbotron">
+  <h2>Welcome to Schoolcraft Specialties!</h2>
+  <p>This is the home of the side projects of the Schoolcraft brothers. Check out the links below for more information:</p>
+  <p><a href="{{url_for('about')}}" class="btn btn-primary btn-lg" role="button">About us</a></p>
+  <p><a class="btn btn-primary btn-lg" role="button">Products for Sale</a></p>
 </div>
 
 

@@ -20,6 +20,11 @@ def smartswitch():
   return render_template('smartswitch.html',
     title = 'DL4 Smart Switch')
     
+@app.route('/about', methods = ['GET'])
+def about():
+  return render_template('about.html',
+    title = 'About Us')
+    
     
 @app.route('/BarEnds', methods = ['GET'])
 def barends():
