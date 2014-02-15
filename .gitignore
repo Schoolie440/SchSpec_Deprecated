@@ -21,6 +21,7 @@ var/
 *.egg
 Include/
 Scripts/
+Lib/
 Post/
 tmp/
 
