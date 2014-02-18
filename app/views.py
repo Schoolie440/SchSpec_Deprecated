@@ -11,6 +11,7 @@ from flask.ext.mail import Mail, Message
 
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/index', methods = ['GET', 'POST'])
+@app.route('/Home', methods = ['GET', 'POST'])
 def index():
   return render_template('index.html',
     title = 'Home')
