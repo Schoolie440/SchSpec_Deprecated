@@ -37,6 +37,11 @@ def barends():
   return render_template('barends.html',
     title = 'Heavy Stainless Bar Ends')
     
+@app.route('/BarEnds/orders', methods = ['GET'])
+def barend_orders():
+  return render_template('barend_orders.html',
+    title = 'Heavy Stainless Bar Ends')
+    
 @app.route("/sendemail")
 def sendemail():
 	msg = Message(

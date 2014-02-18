@@ -2,8 +2,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col-md-12 pull-right">
+<<<<<<< HEAD
+<div class="col-md-12">
 	<p class="lead">This is the home of Schoolcraft Specialties.
+=======
+<div class="col-md-12 pull-right">
+	<p class="lead">This is the home of Schoolcraft Specialties. Brian loves men, Joe is probably the coolest, and Ben is...Ben.</p>
+>>>>>>> SchSpec/brian
 	
 	<!--Brian's Panel-->
 	<div class="panel panel-primary">
