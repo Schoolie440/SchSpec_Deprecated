@@ -2,12 +2,81 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="jumbotron">
-  <h2>Welcome to Schoolcraft Specialties!</h2>
-  <p>This is the home of the side projects of the Schoolcraft brothers. Check out the links below for more information:</p>
-  <p><a href="{{url_for('about')}}" class="btn btn-primary btn-lg" role="button">About us</a></p>
-  <p><a class="btn btn-primary btn-lg" role="button">Products for Sale</a></p>
+
+<div class="col-md-12">
+	<!--Title Jumbotron-->
+	<div class="jumbotron jumbotron-primary">
+	<img src="static/img/templogo.png" class="img-rounded" height="175" align="right" style="margin: 0px 50px 0px 10px">
+	  <h2 class="text-primary">Our Projects, Our passion...</h2>
+	  <p>Welcome to Schoolcraft Specialties</p>
+	  <div style="clear: both"></div>
+	</div>
+	
+	<div class="row">
+	
+		<!--Featured panel-->
+		<div class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading lead">Featured Product: <a href="{{url_for('barends')}}"><font color="white"><i>Heavy Stainless Steel Bar Ends</i></font></a></div>
+				<div class="panel-body">
+					<ul>
+						<a href="{{url_for('barends')}}"><img src="static/img/bar_end_mirror.jpg" class="img-rounded" height="200" align="right" style="margin: 0px 10px 10px 10px"></a>
+						<h4>Brian's latest project:</h4>
+						<a href="{{url_for('barends')}}"><h5>Stainless Steel Bar Ends</h5></a>
+						<p>Tired of your hands going numb from the "buzz" in your bars? These weighted bar ends increase the mass of your handle bar, killing the high frequency buzz that leads to fatigue and numbness.</p>
+					</ul>	
+				</div>
+			</div>
+		</div>
+	
+		<!--What's new panel-->
+		<div class="col-md-3">
+			<div class="panel panel-info">
+				<div class="panel-heading lead"><i>What's New:</i></div>
+				<div class="panel-body">
+					<li type="disc">Check out the new Website!</li>
+					<p></p>
+					<li type="disc">Joe's new DL4 based <a href="{{url_for('smartswitch')}}">project</a></li>
+					<p></p>
+					<li type="disc">Ben's wrestling <a href="{{url_for('benwrestling')}}">videos</a></li>
+					<p></p>
+					<li type="disc">About us <a href="{{url_for('about')}}">section</a></li>
+					<p></p>
+					<li type="disc">Our new <a href="{{url_for('index')}}">home page</a></li>
+					<p></p>
+					<li type="disc">Our new featured product section</li>
+					<p></p>
+					<li type="disc">Our what's new section</li>
+					<p></p>
+					<p> </p>
+				</div>
+			</div>
+		</div>
+		
+		<!--Coming Soon panel-->
+		<div class="col-md-3">
+			<div class="panel panel-danger">
+				<div class="panel-heading lead"><i>Coming Soon:</i></div>
+				<div class="panel-body">
+					<li type="disc">A fully functioning Website!</li>
+					<p></p>
+					<li type="disc">Joe's new DL4 based <a href="{{url_for('smartswitch')}}">project</a></li>
+					<p></p>
+					<li type="disc">Ben's wrestling <a href="{{url_for('benwrestling')}}">videos</a></li>
+					<p></p>
+					<li type="disc">About us <a href="{{url_for('about')}}">section</a></li>
+					<p></p>
+					<li type="disc">Our new <a href="{{url_for('index')}}">home page</a></li>
+					<p></p>
+					<li type="disc">Our new featured product section</li>
+					<p></p>
+					<li type="disc">Our what's new section</li>
+					<p></p>
+					<p> </p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
 </div>
-
-
 {% endblock %}
