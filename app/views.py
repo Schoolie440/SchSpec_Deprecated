@@ -30,8 +30,13 @@ def benwrestling():
 def about():
   return render_template('about.html',
     title = 'About Us')
-    
-    
+
+@app.route('/joe', methods = ['GET'])
+def joe():
+  return render_template('joe.html',
+    title = 'Testing')
+
+	
 @app.route('/BarEnds', methods = ['GET'])
 def barends():
   return render_template('barends.html',
