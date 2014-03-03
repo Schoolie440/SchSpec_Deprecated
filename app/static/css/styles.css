@@ -1,3 +1,35 @@
-body {
-  font-size:20px
+
+#smartswitchjumbo{
+  background-color:#FFFFFF;
+  color:black;
+  border: 2px solid #009CC9;
 }
+
+.aboutimg{
+  float: right;
+  width: 200px;
+  max-width:30%;
+  margin: 20px;
+}
+
+#mainlogo{
+  width:540px;
+  max-width: 90%;
+  margin: 10px;
+}
+
+.text-primary {
+  color: #428bca;
+}
+
+.text-primary:hover { /*Overriding bootstrap hover*/
+  color: #428bca;
+}
+
+.one-line{
+
+  display: inline;
+  white-space: nowrap;
+  overflow:hidden;
+}
+
