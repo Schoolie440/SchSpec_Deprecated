@@ -1,4 +1,4 @@
-<!-- extend base layout -->
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -6,9 +6,9 @@
 <div class="col-md-12">
 	<!--Title Jumbotron-->
 	<div class="jumbotron jumbotron-primary">
-	<img src="static/img/logo.png" class="img-rounded" width="525" align="right" style="margin: 0px 50px 0px 10px">
-	  <h2 class="text-primary">Our Projects, Our passion...</h2>
-	  <p>Welcome to Schoolcraft Specialties</p>
+	<img src="static/img/logo.png" class="img-rounded pull-right" id="mainlogo">
+	  <h2 class="text-primary"><p>Our&nbsp;Projects, Our&nbsp;passion... </p></h2>
+	  <p>Welcome&nbsp;to Schoolcraft&nbsp;Specialties</p>
 	  <div style="clear: both"></div>
 	</div>
 	
@@ -20,7 +20,7 @@
 				<div class="panel-heading lead"><i>Featured Product: </i><a href="{{url_for('barends')}}"><font color="white">Heavy Stainless Steel Bar Ends</font></a></div>
 				<div class="panel-body">
 					<ul>
-						<a href="{{url_for('barends')}}"><img src="static/img/bar_end_mirror.jpg" class="img-rounded" height="200" align="right" style="margin: 0px 10px 10px 10px"></a>
+						<a href="{{url_for('barends')}}"><img src="static/img/bar_end_mirror.jpg" class="aboutimg"></a>
 						<h4>Brian's latest project:</h4>
 						<a href="{{url_for('barends')}}"><h5>Stainless Steel Bar Ends</h5></a>
 						<p>Tired of your hands going numb from the "buzz" in your bars? These weighted bar ends increase the mass of your handle bar, killing the high frequency buzz that leads to fatigue and numbness.</p>
