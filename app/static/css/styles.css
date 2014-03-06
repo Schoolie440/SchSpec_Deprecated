@@ -40,6 +40,13 @@
   margin: 20px;
 }
 
+.aboutimg-ben{
+  float: right;
+  height: 200px;
+  max-width:45%;
+  margin: 20px;
+}
+
 #mainlogo{
   width:540px;
   max-width: 90%;
