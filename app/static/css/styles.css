@@ -2,7 +2,29 @@
 #smartswitchjumbo{
   background-color:#FFFFFF;
   color:black;
-  border: 2px solid #009CC9;
+  border: 2px solid #428BCA;
+}
+
+#homejumbo{
+  background-color:#FFFFFF;
+  color:black;
+  border: 2px solid #428BCA;
+}
+
+#mod_overview_panel{
+	height: 500px
+}
+
+
+
+#sspic{
+	height: auto;
+	max-width: 100%;
+	margin: 0px 5px 15px 10px;
+}
+
+.panel-danger{
+	height: 350px;
 }
 
 #navbar-logo{
@@ -22,6 +44,12 @@
   width:540px;
   max-width: 90%;
   margin: 10px;
+}
+
+#smartswitchmainimg{
+	width: 500px;
+	max-width: 55%;
+	margin-bottom: 20px;
 }
 
 .text-primary {

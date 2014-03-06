@@ -8,9 +8,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div id="smartswitchjumbo" class="jumbotron">
-		<img src="static/img/dl4main.jpg" align="right" width="500" style="margin-bottom: 20px">
-
-			
+		<img src="static/img/dl4main.jpg" id="smartswitchmainimg" align="right">
 			<h1 style="padding-top: 7%">The Smart Switch</h1>
 			<h4 style="padding: 2%">
 			Finally, an easy way to tap in dotted 1/8ths on your DL4.</h4>
@@ -24,7 +22,7 @@
 <div class="row">
 <!--Mod overview Panel-->
 	<div class="col-md-6">
-		<div class="panel panel-primary">
+		<div class="panel panel-primary" id="mod_overview_panel">
 			<div class="panel-heading lead">Mod Overview</div>
 			<div class="panel-body">
 				
@@ -40,7 +38,11 @@
 				new footswitch down for about 1 second, the Smart Switch circuit will simulate you moving the expression pedal from the heel down position to the toe down 
 				position or vice-versa. This allows you to have two different presets per delay type. See the <a href="{{url_for('smartswitch')}}#modinfo">Mod Info</a> section below for more information.
 				</p>
-
+				
+				<p>
+				Check out the Mod Kit and Pricing section to the right for more details on shipping, price, etc. Also, you can download the source code,
+				installation manual, and Smart Switch schematic completely for free. Thanks for your interest in this mod, and best of luck!
+				</p>
 			</div>
 		</div>
 	
@@ -51,31 +53,34 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading lead">Mod Kit and Pricing</div>
 			<div class="panel-body">
-				<img src="static/img/smartswitch.jpg" align="right" height="200" style="margin: 0px 10px 15px 10px">
-				<p><h4>Logistics:</h4></p>
-				<p>
-				<ul>
-					<li>Kit includes all necessary parts and wire</li>
-					<li>Kit comes with installation and use manual</li>
-					<li class="text-danger"><b>We are not responsible for damage done to your pedal</b></li>
-				</ul>
-				</p>
-				<p><h4>Kit Pricing:</h4></p>
-				<ul>
-					<li>Full Kit: $50.00 USD</li>
-					<li class="text-success">Beta Testers (first six): <i>$25.00 USD</i></li>
-					<li>See the <a href="{{url_for('smartswitch')}}#betatesters">Beta Testers</a> section for more info.</li>
-					<p></p>
-				<!--How to make a link open in a new tab: (inside an a tag: target="_blank"-->
-				</ul>
-				<div class="row">
-					<div align="left" class="col-md-6">
-						<p><a href="static/doc/SmartSwitchManual v2.pdf" target="_blank">View the Installation Manual here</a><br>
-						<a href="static/doc/DL4 Smart Switch Tiny Rev 2.pdf" target="_blank">View the schematic here</a></p>
-					</div>
-					<div class="col-md-6" align="center">
-						<a class="btn btn-primary btn-default active" href="mailto:joe@schoolcraftspecialties.com?subject=Smart Switch Order&body=Please%20fill%20out%20the%20following%20information%3A%0A%0ANumber%20of%20Smart%20Switch%20Kits%3A%20X%0A%0AName%3A%20XXXX%20XXXX%0A%0AFull%20Address%3A%0AXXXXXX%0AXXXXXX%0A%0ABy%20sending%20this%20email%2C%20you%20agree%20to%20the%20following%20to%20our%20disclaimer/agreement%20terms%20here%3A%0Adevel.schoolcraftspecialties.com/SmartSwitch%23disc"><font color="white">Order Now by Email</font></a>
-					</div>
+				<div class="col-md-6">
+					<p><h4>Logistics:</h4></p>
+					<p>
+					<ul>
+						<li>Kit includes all necessary parts and wire</li>
+						<li>Kit comes with installation and use manual</li>
+						<li class="text-danger"><b>We are not responsible for damage done to your pedal</b></li>
+					</ul>
+					</p>
+					<p><h4>Kit Pricing:</h4></p>
+					<ul>
+						<li>Full Kit: $50.00 USD</li>
+						<li class="text-success">Beta Testers (first six): <i>$25.00 USD</i></li>
+						<li>See the <a href="{{url_for('smartswitch')}}#betatesters">Beta Testers</a> section for more info.</li>
+						<li>Shipping: Free to Continental United States</li>
+						<li><b>Payment information given upon order</b></li>
+						<p></p>						
+					</ul>
+				</div>
+				<div class="col-md-6"">
+					<img src="static/img/smartswitch.jpg" align="right" id="sspic">
+					<div style="padding-left: 40px"><a class="btn btn-primary btn-default active" href="mailto:joe@schoolcraftspecialties.com?subject=Smart Switch Order&body=Please%20fill%20out%20the%20following%20information%3A%0A%0ANumber%20of%20Smart%20Switch%20Kits%3A%20X%0A%0AName%3A%20XXXX%20XXXX%0A%0AFull%20Address%3A%0AXXXXXX%0AXXXXXX%0A%0ABy%20sending%20this%20email%2C%20you%20agree%20to%20the%20disclaimer/agreement%20here%3A%0Awww.schoolcraftspecialties.com/SmartSwitch%23disc"><font color="white">Order Now by Email</font></a></div>
+					<br>
+					<ul>
+						<li><a href="static/doc/DL4_Smart_Switch_V2.txt" target="_blank">View the source code here</a></li>
+						<li><a href="static/doc/DL4 Smart Switch Tiny Rev 2.pdf" target="_blank">View the schematic here</a></li>
+						<li><a href="static/doc/SmartSwitchManual v2.pdf" target="_blank">View the Installation Manual here</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -90,7 +95,7 @@
 		The kit comes with a programmed micro-controller, the Smart Switch PCB, the LED breakout board, all the components and 
 		instructions necessary to complete the dotted eighth mod, double preset mod, and even the parts and instructions necessary to get rid
 		of that nasty volume drop that plagues the DL4. Check out the <a href="{{url_for('smartswitch')}}#skillsrequired">Skills Required</a> section below to 
-		see if you have what it takes to do the mod. I also strongly recommend looking through the installation manual <a href="static/doc/SmartSwitchManual 09-13.pdf" target="_blank">here</a>.
+		see if you have what it takes to do the mod. I also strongly recommend looking through the installation manual <a href="static/doc/SmartSwitchManual v2.pdf" target="_blank">here</a>.
 		</p>
 		<h3 id="betatesters">Beta Testers</h3>
 		<p>
@@ -147,9 +152,14 @@
 	
 </div>
 <div class="panel panel-primary">
-	<div class="panel-heading lead">Demo Videos</div>
+	<div class="panel-heading lead">Old Demo Videos</div>
 	
 	<div class="panel-body">
+		<p><strong>Note:</strong> These videos are old and out of date. This was the original prototype of The Smart Switch; your kit will not
+		resemble the circuit shown in these videos. These videos are here merely to provide a better idea of what the mod does. New demo videos
+		will be coming soon!
+		</p>
+		<br>
 		<iframe width="560" height="315" src="//www.youtube.com/embed/lvSlT5l2MBE?rel=0" frameborder="0" allowfullscreen></iframe>
   
 		<iframe width="560" height="315" src="//www.youtube.com/embed/mjlx8rT_3zA?rel=0" frameborder="0" allowfullscreen></iframe>

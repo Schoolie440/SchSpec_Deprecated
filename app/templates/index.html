@@ -5,7 +5,7 @@
 
 <div class="col-md-12">
 	<!--Title Jumbotron-->
-	<div class="jumbotron jumbotron-primary">
+	<div class="jumbotron jumbotron-primary" id="homejumbo">
 	<img src="static/img/logo.png" class="img-rounded pull-right" id="mainlogo">
 	  <h2 class="text-primary"><p>Our&nbsp;Projects, Our&nbsp;passion... </p></h2>
 	  <p>Welcome&nbsp;to Schoolcraft&nbsp;Specialties</p>
@@ -15,21 +15,28 @@
 	<div class="row">
 	
 		<!--Featured panel-->
-		<div class="col-md-6">
+		<div class="col-md-8">
 			<div class="panel panel-primary">
-				<div class="panel-heading lead"><i>Featured Product: </i><a href="{{url_for('barends')}}"><font color="white">Heavy Stainless Steel Bar Ends</font></a></div>
+				<div class="panel-heading lead"><i>Featured Product: </i><a href="{{url_for('smartswitch')}}"><font color="white">The Smart Switch</font></a></div>
 				<div class="panel-body">
 					<ul>
-						<a href="{{url_for('barends')}}"><img src="static/img/bar_end_mirror.jpg" class="aboutimg"></a>
-						<h4>Brian's latest project:</h4>
-						<a href="{{url_for('barends')}}"><h5>Stainless Steel Bar Ends</h5></a>
-						<p>Tired of your hands going numb from the "buzz" in your bars? These weighted bar ends increase the mass of your handle bar, killing the high frequency buzz that leads to fatigue and numbness.</p>
+						<a href="{{url_for('smartswitch')}}"><img src="static/img/smartswitch.jpg" class="aboutimg"></a>
+						<h4>Joe's latest project:</h4>
+						<a href="{{url_for('smartswitch')}}"><h5>The Smart Switch for the Line 6 DL4</h5></a>
+						<p>
+						Finally, there's an easy way to tap in dotted eighth notes on your DL4. This small (1x1 in.) circuit will completely enhance
+						the usability of your Line 6 DL4 unit. Based on the user friendly Arduino platform, the powerful ATtiny85 is comes pre-programmed 
+						to give you 1/4 note to dotted 1/8th note conversion seemlessly. Beyond that, The Smart Switch gives you the ability to simulate an 
+						expression pedal input, giving you two presets per delay type, for a total of 6 presets without the need of a clunky, space consuming external expression 
+						pedal.
+						</p>
 					</ul>	
 				</div>
 			</div>
 		</div>
 	
 		<!--What's new panel-->
+		<!--
 		<div class="col-md-3">
 			<div class="panel panel-info">
 				<div class="panel-heading lead"><i>What's New:</i></div>
@@ -52,27 +59,23 @@
 				</div>
 			</div>
 		</div>
-		
+		-->
 		<!--Coming Soon panel-->
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<div class="panel panel-danger">
 				<div class="panel-heading lead"><i>Coming Soon:</i></div>
 				<div class="panel-body">
-					<li type="disc">A fully functioning Website!</li>
+					<li type="disc">More website features</li>
 					<p></p>
-					<li type="disc">Joe's new DL4 based <a href="{{url_for('smartswitch')}}">project</a></li>
+					<li type="disc">A featured product section</li>
 					<p></p>
-					<li type="disc">Ben's wrestling <a href="{{url_for('benwrestling')}}">videos</a></li>
+					<li type="disc">A what's new section</li>
 					<p></p>
-					<li type="disc">About us <a href="{{url_for('about')}}">section</a></li>
-					<p></p>
-					<li type="disc">Our new <a href="{{url_for('index')}}">home page</a></li>
-					<p></p>
-					<li type="disc">Our new featured product section</li>
-					<p></p>
-					<li type="disc">Our what's new section</li>
-					<p></p>
-					<p> </p>
+					<li type="disc">More projects, smoother ordering</li>
+					<br>
+					<br>
+					<br>
+					<p>Check out our blog that with more projects on it <a href="http://sonsofinvention.wordpress.com/" target="_blank">here</a>.</p>
 				</div>
 			</div>
 		</div>
