@@ -19,7 +19,7 @@ def index():
 @app.route('/SmartSwitch', methods = ['GET'])
 def smartswitch():
   return render_template('smartswitch.html',
-    title = 'DL4 Smart Switch')
+    title = 'The Smart Switch')
     
 @app.route('/BenWrestling', methods = ['GET'])
 def benwrestling():
