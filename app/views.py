@@ -19,7 +19,8 @@ def index():
 @app.route('/SmartSwitch', methods = ['GET'])
 def smartswitch():
   return render_template('smartswitch.html',
-    title = 'The Smart Switch')
+    title = 'The Smart Switch',
+    description = " The Smart Switch mod for the Line 6 DL4. Finally, an easy way to tap in dotted 1/8ths on your Line 6 DL4. Tap in quarter notes, get dotted eighth notes.")
     
 @app.route('/BenWrestling', methods = ['GET'])
 def benwrestling():
