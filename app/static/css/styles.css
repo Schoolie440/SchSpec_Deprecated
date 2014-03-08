@@ -5,6 +5,12 @@
   border: 2px solid #428BCA;
 }
 
+#smartswitchmainimg{
+	width: 500px;
+	max-width: 100%;
+	margin-bottom: 10px;
+}
+
 #homejumbo{
   background-color:#FFFFFF;
   color:black;
@@ -53,11 +59,7 @@
   margin: 10px;
 }
 
-#smartswitchmainimg{
-	width: 500px;
-	max-width: 55%;
-	margin-bottom: 20px;
-}
+
 
 .text-primary {
   color: #428bca;
