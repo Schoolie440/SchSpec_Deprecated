@@ -67,3 +67,12 @@
   color: #428bca;
 }
 
+
+
+ul{
+  -webkit-padding-start: 30px;
+}
+
+ul  ul{
+  -webkit-padding-start: 10px;
+}
