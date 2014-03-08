@@ -20,7 +20,7 @@ def index():
 def smartswitch():
   return render_template('smartswitch.html',
     title = 'The Smart Switch',
-    description = " The Smart Switch mod for the Line 6 DL4. Finally, an easy way to tap in dotted 1/8ths on your Line 6 DL4. Tap in quarter notes, get dotted eighth notes.")
+    description = " The Smart Switch mod for the Line 6 DL4. Finally, an easy way to tap in dotted 1/8ths on your Line 6 DL4. The DL4 Smart Switch gives you the ability to convert quarter notes to dotted eighth notes on any delay setting at any time. On top of that, you also get the option to switch quickly between two presets per delay type without the need of an external expression pedal.")
     
 @app.route('/BenWrestling', methods = ['GET'])
 def benwrestling():
