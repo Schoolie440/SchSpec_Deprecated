@@ -15,6 +15,16 @@
                 {% endfor %}
             </div>
         </div>
+        {{form.hidden_tag()}}
+        <div class="control-group{% if form.errors.post %} error{% endif %}">
+            <label class="control-label" for="email2">Please reenter your email:</label>
+            <div class="controls">
+                {{ form.email2(maxlength = 64, class = "span6") }}
+                {% for error in form.errors.email %}
+                    <span class="help-inline">[{{error}}]</span><br>
+                {% endfor %}
+            </div>
+        </div>
         <div class="control-group{% if form.errors.post %} error{% endif %}">
             <label class="control-label" for="comments">Is there anything else you'd like us to know?</label>
             <div class="controls">
