@@ -11,13 +11,12 @@ OPENID_PROVIDERS = [
     { 'name': 'Flickr', 'url': 'http://www.flickr.com/<username>' },
     { 'name': 'MyOpenID', 'url': 'https://www.myopenid.com' }]
     
-# if os.environ.get('DATABASE_URL') is None:
-    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-# else:
-    # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+if os.environ.get('DATABASE_URL') is None:
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+else:
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
     
-# SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')    
-# WHOOSH_BASE = os.path.join(basedir, 'search.db')
+SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')    
 
 # email server
 MAIL_SERVER='smtp.gmail.com'

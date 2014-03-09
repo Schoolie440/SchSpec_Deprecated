@@ -1,10 +1,11 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 # from flask.ext.login import login_user, logout_user, current_user, login_required
-from app import app, mail #, db, lm, oid
-# from forms import LoginForm, EditForm, PostForm, SearchForm
-# from models import User, ROLE_USER, ROLE_ADMIN, Post, Map, Point, Log
+from app import app, mail, db #, lm, oid
+from forms import LoginForm, OrderForm
+from models import User, ROLE_USER, ROLE_ADMIN, Order
 from datetime import datetime
-# from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS
+from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS
+from sqlalchemy import desc
 
 from flask.ext.mail import Mail, Message
 
@@ -17,6 +18,7 @@ def index():
     title = 'Home')
     
 @app.route('/SmartSwitch', methods = ['GET'])
+@app.route('/smartswitch', methods = ['GET'])
 def smartswitch():
   return render_template('smartswitch.html',
     title = 'The Smart Switch',
@@ -62,3 +64,28 @@ def sendemail():
 	msg.body = "This is the email body"
 	mail.send(msg)
 	return "Sent"
+  
+@app.route("/orders")
+@app.route("/orders/<int:page>")
+def orders(page = 1):
+  orders = Order.query.order_by(desc(Order.id)).paginate(page, POSTS_PER_PAGE, False)
+  return render_template('order_list.html',
+    title = 'Admin - Orders',
+    orders = orders)
+    
+@app.route("/smartswitch_order", methods = ['GET', 'POST'])
+def smartswitch_order():
+  form = OrderForm()
+  if form.validate_on_submit():
+    order = Order(email = form.email.data, 
+            comments = form.comments.data,
+            product = "SmartSwitch",
+            order_date = datetime.utcnow())
+    db.session.add(order)
+    db.session.commit()
+    flash('Your order has been placed')
+    return redirect(url_for('smartswitch'))
+
+  return render_template('smartswitch_order.html',
+    title = 'Order Now - Smart Switch',
+    form = form)

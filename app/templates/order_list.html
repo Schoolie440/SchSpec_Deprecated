@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% for order in orders.items %}
+    {% include 'order.html' %}
+{% endfor %}
+<ul class="pager">
+    {% if orders.has_prev %}
+    <li class="previous"><a href="{{ url_for('orders', page = orders.prev_num) }}">Newer orders</a></li>
+    {% else %}
+    <li class="previous disabled"><a href="#">Newer orders</a></li>
+    {% endif %}
+    {% if orders.has_next %}
+    <li class="next"><a href="{{ url_for('orders', page = orders.next_num) }}">Older orders</a></li>
+    {% else %}
+    <li class="next disabled"><a href="#">Older orders</a></li>
+    {% endif %}
+</ul>
+
+
+{% endblock %}
