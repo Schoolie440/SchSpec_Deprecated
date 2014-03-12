@@ -25,11 +25,11 @@ Support:       www.schoolcraftspecialties.com/SmartSwitch
 #define  SELPIN3    3
 
 //Constants
-#define  DEBOUNCE  40        //Debounce time for the footswitch
-#define  PULSES  4           //Number of pulses to send to the transistor which "taps" the tempo in on the DL4
-#define  OUTPUT_TIME  40     //Length of pulse
-#define  HOLD_TIME  750      //Time it takes to trigger the double preset mod (in ms). Make this lower if you want it to switch faster.
-#define  RESET_TIME  2000    //Timeout for the tap averager
+#define  DEBOUNCE  40
+#define  PULSES  4
+#define  OUTPUT_TIME  40
+#define  HOLD_TIME  750
+#define  RESET_TIME  2000
 
 
 // Variables that will change
@@ -38,7 +38,7 @@ int currentTimer[3];  // array of most recent tap counts
 
 byte holdNumber = 1;
 byte tapCount = 0;
-byte pulseCount = 4;    // Tracks the number of pulses sent to pedal
+byte pulseCount = 4;    // Number of pulses sent to pedal
 byte divisor;
 
 boolean  readingHold = true; // double preset switch reading initialized
@@ -51,7 +51,8 @@ boolean lastHoldState = true; //previous reading
 boolean lastButtonState = false;   // the previous reading from the input pin
 
 float tempoScale = 0.75;  // Tempo scale factor (dotted eighth, etc)
-float interval;           //Tempo tapped in
+float interval;
+float scaledInterval;
 
 
 // the following variables are long's because the time, measured in miliseconds,
@@ -65,35 +66,24 @@ unsigned long lastTap = 0; // when the last tap happened
 
 void setup()
 {
-  pinMode( TEMPO_IN, INPUT );    // tap switch - tap it to set the tempo
+  pinMode( TEMPO_IN, INPUT );   // tap button - press it to set the tempo 
   pinMode( TEMPO_OUT, OUTPUT );  // Tempo output to pedal
-  pinMode( SELPIN3, OUTPUT );    // Preset indicator LED
-  pinMode( SELPIN1, OUTPUT );    //To MOSFET for double preset
-  pinMode( SELPIN2, OUTPUT );    //To MOSFET for double preset
+  pinMode( SELPIN3, OUTPUT );  // Tempo output indicator LED
+  pinMode( SELPIN1, OUTPUT ); //transistor voltage output 
+  pinMode( SELPIN2, OUTPUT ); //transistor voltage output 
   
-  digitalWrite(SELPIN1, HIGH);    //This sets the expression simulator to the
-  digitalWrite(SELPIN2, LOW);     //"heel down" position every time the pedal is
-  digitalWrite(SELPIN3, LOW);     //power cycled.
+  digitalWrite(SELPIN1, HIGH);
+  digitalWrite(SELPIN2, HIGH);
+  digitalWrite(SELPIN3, LOW);
 }
 
 void loop()
 {
-  //Read if there's been a tap by debouncing the switch
   tapState = debounce(&lastButtonState, &lastDebounceTime, DEBOUNCE, HOLD_TIME, TEMPO_IN, &tapCount, false, currentTimer, 3);
-  
-  //See if the switch has been pressed and held
   holdState = debounce(&tempHoldState, &lastDebounceTime, HOLD_TIME, DEBOUNCE, TEMPO_IN, &tapCount, true, currentTimer, 3);
-  
-  //Read the intervals between taps into an array and average them and then truncate to a bpm
   getTapTempo(tapState, &lastTapState, &tapCount, currentTimer, 3, &interval, &divisor, &sum, &lastTap, RESET_TIME, &pulseCount);
-  
-  //Scale the tempo
-  interval *= tempoScale;
-  
-  //Output the tempo to the DL4
-  output(&timeoutTime, &indicatorTimeout, PULSES, &pulseCount, TEMPO_OUT, currentTimer, 3);
-  
-  //Set the expression simulator MOSFETs and the indicator LED
+  scaledInterval = interval * tempoScale;
+  output(&timeoutTime, &indicatorTimeout, PULSES, &pulseCount, TEMPO_OUT, currentTimer, 3, scaledInterval);
   doublePreset(SELPIN1, SELPIN2, SELPIN3, &holdNumber, holdState, &lastHoldState);
 }
 //Actuates the Double Preset MOSFET
@@ -192,7 +182,7 @@ void getTapTempo(boolean trigger, boolean *lastTrigger, byte *triggerCounts, int
 }
 
 //Outputs the pulses to the MOSFET to pull the tempo footswitch on the DL4 LOW
-void output(unsigned long *timeoutTime, unsigned long *indicatorTimeout, byte pulses, byte *pulseCount, byte outputPin, int currentTimer[], byte arrayLength){
+void output(unsigned long *timeoutTime, unsigned long *indicatorTimeout, byte pulses, byte *pulseCount, byte outputPin, int currentTimer[], byte arrayLength, float interval){
   // check for timer timeout 
   if (millis() >= *timeoutTime && *pulseCount < pulses)  // it's time to send the output pulse
   {
