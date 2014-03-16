@@ -35,15 +35,13 @@
         {{ form.comments(maxlength = 500, placeholder = "Comments?", class = "form-control") }}
       </div>
     </div>
-<!--     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Remember me
-          </label>
-        </div>
+     <div class="form-group">
+      <div class="col-sm-10">
+        <label class="checkbox" for="remember_me">
+          {{ form.beta }} I want to be a beta tester!
+        </label>
       </div>
-    </div> -->
+    </div> 
     <div class="form-group">
       <div class="col-sm-10">
         <button type="submit" class="btn btn-primary">Place Order</button>

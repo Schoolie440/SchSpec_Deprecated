@@ -1,8 +1,6 @@
-from flask.ext.wtf import Form
-#from flask.ext.wtf import Form, TextField, BooleanField, TextAreaField
-#from flask.ext.wtf import Required, Length
+from flask.ext.wtf import Form, RecaptchaField
 
-from wtforms import TextField, BooleanField, TextAreaField
+from wtforms import TextField, BooleanField, TextAreaField, BooleanField
 from wtforms.validators import Required, Length, Email, EqualTo
 
 class LoginForm(Form):
@@ -14,7 +12,9 @@ from app.models import User
 class OrderForm(Form):
     email = TextField('email', validators = [Required(), Email(message=u'Invalid email address.'), EqualTo('email2', message='Email address must match')])
     email2 = TextField('email2')
+    beta = BooleanField('beta')
     comments = TextAreaField('comments')
+    captcha = RecaptchaField()
 
         
 class PostForm(Form):
