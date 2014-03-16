@@ -83,9 +83,9 @@ def smartswitch_order():
             order_date = datetime.utcnow())
     db.session.add(order)
     db.session.commit()
-    flash('Your order has been placed')
+    flash('Your order has been placed - Thank you!')
     return redirect(url_for('smartswitch'))
 
-  return render_template('smartswitch_order.html',
+  return render_template('smartswitch_order_form.html',
     title = 'Order Now - Smart Switch',
     form = form)

@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="well">
+  <div class="col-sm-8">
+    <h3>How this works:</h3>
+    <p>Since this is a small operation, we're not taking your money right away. Place your order, and we'll get back with you to confirm that
+    we've got your kit in stock and ask for payment at that time. Thanks for your interest!</p>
+  </div>
+  <form class="form-horizontal" role="form" action="" method="post" name="order">
+    {{form.hidden_tag()}}
+    <div class="form-group{% if form.errors.email %} has-error{% endif %}">      
+      <div class="col-sm-10">
+        <label for="email" class="control-label">Enter Email</label>
+        {{ form.email(maxlength = 64, placeholder = "you@email.com", class = "form-control") }}
+        {% for error in form.errors.email %}
+          <p class="help-block">[{{error}}]</p>
+        {% endfor %}
+      </div>
+    </div>    
+    {{form.hidden_tag()}}
+    <div class="form-group{% if form.errors.email2 %} has-error{% endif %}">
+      <div class="col-sm-10">
+        <label for="email2" class="control-label">Confirm Email</label>
+        {{ form.email2(maxlength = 64, placeholder = "you@email.com", class = "form-control") }}
+        {% for error in form.errors.email2 %}
+          <p class="help-block">[{{error}}]</p>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="form-group{% if form.errors.comments %} has-error{% endif %}">
+      <div class="col-sm-10">
+        <label for="comments" class="control-label">Anything else we need to know?</label>
+        {{ form.comments(maxlength = 500, placeholder = "Comments?", class = "form-control") }}
+      </div>
+    </div>
+<!--     <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Remember me
+          </label>
+        </div>
+      </div>
+    </div> -->
+    <div class="form-group">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Place Order</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
