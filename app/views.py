@@ -80,7 +80,8 @@ def smartswitch_order():
     order = Order(email = form.email.data, 
             comments = form.comments.data,
             product = "SmartSwitch",
-            order_date = datetime.utcnow())
+            order_date = datetime.utcnow(),
+            order_type = form.order_type.data)
     db.session.add(order)
     db.session.commit()
     flash('Your order has been placed - Thank you!')

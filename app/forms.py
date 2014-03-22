@@ -10,13 +10,13 @@ class LoginForm(Form):
 from app.models import User
 
 class OrderForm(Form):
-    email = TextField('Enter your email:', validators = [Required(), Email(message=u'Invalid email address.'), EqualTo('email2', message='Email address must match')])
-    email2 = TextField('Confirm your email:')
-    beta = BooleanField('beta')
+    email = TextField('Enter your email:', validators = [Required(), Email(message=u'Invalid email address.')])
+    email2 = TextField('Confirm your email:', validators = [EqualTo('email', message='Email address must match')])
     comments = TextAreaField('Anything else you need to tell us?')
-    captcha = RecaptchaField()
-    order_type = RadioField('Label', choices=[('beta','I want to be a Beta Tester!'),
-                                              ('standard',"I'll wait until Beta Testing is finished. Put me on the Pre-Order List!")])
+    # captcha = RecaptchaField()
+    order_type = RadioField('Select an order type', validators = [Required('Please select an order type')], 
+                                                    choices=[('beta','I want to be a Beta Tester!'),
+                                                             ('standard',"I'll wait until Beta Testing is finished. Put me on the Pre-Order List!")])
 
 
         

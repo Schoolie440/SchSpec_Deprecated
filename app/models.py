@@ -55,6 +55,7 @@ class Order(db.Model):
     product = db.Column(db.String(20))
     options = db.Column(db.String(140))
     order_date = db.Column(db.DateTime)
+    order_type = db.Column(db.String(20))
     paid = db.Column(db.Boolean) 
     paid_date = db.Column(db.DateTime)
     shipped = db.Column(db.Boolean)
