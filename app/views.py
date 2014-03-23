@@ -77,13 +77,13 @@ def orders(page = 1):
 def smartswitch_order():
   form = OrderForm()
   if form.validate_on_submit():
-    # order = Order(email = form.email.data, 
-            # comments = form.comments.data,
-            # product = "SmartSwitch",
-            # order_date = datetime.utcnow(),
-            # order_type = form.order_type.data)
-    # db.session.add(order)
-    # db.session.commit()
+    order = Order(email = form.email.data, 
+            comments = form.comments.data,
+            product = "SmartSwitch",
+            order_date = datetime.utcnow(),
+            order_type = form.order_type.data)
+    db.session.add(order)
+    db.session.commit()
     # flash('Your order has been placed - Thank you!')
     return redirect(url_for('smartswitch'))
 
