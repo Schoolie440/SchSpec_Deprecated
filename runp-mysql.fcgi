@@ -1,6 +1,5 @@
 #!flask/bin/python
 
-use mysql
 import os
 if os.path.dirname(os.path.abspath(__file__)) == "SchSpec":
   os.environ['DATABASE_URL'] = 'mysql://apps:Amanda09@localhost/SchSpec'
