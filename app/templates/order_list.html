@@ -7,6 +7,9 @@
 {% for order in orders.items %}
     {% include 'order.html' %}
 {% endfor %}
+
+<div style="clear: both"></div>
+
 <ul class="pager">
     {% if orders.has_prev %}
     <li class="previous"><a href="{{ url_for('orders', page = orders.prev_num) }}">Newer orders</a></li>
