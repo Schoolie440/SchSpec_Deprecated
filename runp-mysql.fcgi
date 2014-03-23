@@ -2,7 +2,10 @@
 
 use mysql
 import os
-os.environ['DATABASE_URL'] = 'mysql://SchSpec:specialties14@localhost/apps'
+if os.path.dirname(os.path.abspath(__file__)) == "SchSpec":
+  os.environ['DATABASE_URL'] = 'mysql://apps:Amanda09@localhost/SchSpec'
+elif os.path.dirname(os.path.abspath(__file__)) == "SchSpecTest":
+  os.environ['DATABASE_URL'] = 'mysql://apps:Amanda09@localhost/SchSpecTest'
 
 from flup.server.fcgi import WSGIServer
 from app import app
