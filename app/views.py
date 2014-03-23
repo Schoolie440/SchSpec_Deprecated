@@ -84,7 +84,7 @@ def smartswitch_order():
             order_type = form.order_type.data)
     db.session.add(order)
     db.session.commit()
-    # flash('Your order has been placed - Thank you!')
+    flash('Your order has been placed - Thank you!')
     return redirect(url_for('smartswitch'))
 
   return render_template('smartswitch_order_form.html',
