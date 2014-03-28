@@ -1,9 +1,11 @@
 #!flask/bin/python
 
 import os
-if os.path.dirname(os.path.abspath('runp-mysql.fcgi')) == '/home/apps/SchSpec':
+from config import RUN_TYPE
+
+if RUN_TYPE == 'production':
   os.environ['DATABASE_URL'] = 'mysql://apps:Amanda09@localhost/SchSpec'
-elif os.path.dirname(os.path.abspath('runp-mysql.fcgi')) == '/home/apps/SchSpecTest':
+elif RUN_TYPE == 'test':
   os.environ['DATABASE_URL'] = 'mysql://apps:Amanda09@localhost/SchSpecTest'
 
 from flup.server.fcgi import WSGIServer
