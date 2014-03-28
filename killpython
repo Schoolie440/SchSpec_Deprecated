@@ -1,0 +1,2 @@
+killall /home/apps/SchSpecTest/flask/bin/python
+killall /home/apps/SchSpec/flask/bin/python
