@@ -4,7 +4,7 @@ from config import SQLALCHEMY_DATABASE_URI
 from config import SQLALCHEMY_MIGRATE_REPO
 
 import os
-print os.environ['DATABASE_URL']
+
 
 print SQLALCHEMY_DATABASE_URI
 print SQLALCHEMY_MIGRATE_REPO
