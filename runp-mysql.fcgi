@@ -5,6 +5,8 @@ if os.path.dirname(os.path.abspath('runp-mysql.fcgi')) == '/home/apps/SchSpec':
   os.environ['DATABASE_URL'] = 'mysql://apps:Amanda09@localhost/SchSpec'
 elif os.path.dirname(os.path.abspath('runp-mysql.fcgi')) == '/home/apps/SchSpecTest':
   os.environ['DATABASE_URL'] = 'mysql://apps:Amanda09@localhost/SchSpecTest'
+else:
+  print "What the heck?"
 
 from flup.server.fcgi import WSGIServer
 from app import app
