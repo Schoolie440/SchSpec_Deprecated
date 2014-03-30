@@ -2,12 +2,14 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# if basedir == '/home/apps/SchSpec':
-  # RUN_TYPE = 'production'
-# elif basedir == '/home/apps/SchSpecTest':
-  # RUN_TYPE = 'test'
-# else:
-  # RUN_TYPE = 'local'
+if basedir == '/home/apps/SchSpec':
+  RUN_TYPE = 'production'
+elif basedir == '/home/apps/SchSpecTest':
+  RUN_TYPE = 'test'
+else:
+  RUN_TYPE = 'local'
+  
+print '\n\n' + RUN_TYPE + '\n\n'
 
 
 CSRF_ENABLED = True
