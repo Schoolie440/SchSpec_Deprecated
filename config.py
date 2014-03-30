@@ -9,7 +9,7 @@ elif basedir == '/home/apps/SchSpecTest':
 else:
   RUN_TYPE = 'local'
   
-print '\n\n' + RUN_TYPE + '\n\n'
+print '\n\nEnvironment: ' + RUN_TYPE + '\n\n'
 
 
 CSRF_ENABLED = True
