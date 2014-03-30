@@ -2,12 +2,12 @@ from flask.ext.wtf import Form, RecaptchaField
 
 from wtforms import TextField, BooleanField, TextAreaField, BooleanField, RadioField
 from wtforms.validators import Required, Length, Email, EqualTo
+from app.models import User
 
 class LoginForm(Form):
     openid = TextField('openid', validators = [Required()])
     remember_me = BooleanField('remember_me', default = False)
 
-from app.models import User
 
 class OrderForm(Form):
     email = TextField('Enter your email:', validators = [Required(), Email(message=u'Invalid email address.')])
