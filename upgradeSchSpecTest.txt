@@ -1,0 +1,7 @@
+ssh -t apps@brianschoolcraft.com "cd SchSpecTest;
+git pull;
+sudo -u apache ./killpython; 
+export SSTEST_DATABASE_URL=mysql://apps:Amanda09@localhost/SchSpecTest
+./db_upgrade.py"
+
+
