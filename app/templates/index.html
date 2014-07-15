@@ -5,92 +5,40 @@
 
 <div class="col-md-12">
 	<!--Title Jumbotron-->
-	<div class="jumbotron jumbotron-primary" id="homejumbo">
-	<img src="static/img/logo.png" class="img-rounded pull-right" id="mainlogo">
-	  <h2 class="text-primary"><p>Our&nbsp;Projects, Our&nbsp;passion... </p></h2>
-	  <p>Welcome&nbsp;to Schoolcraft&nbsp;Specialties</p>
-	  <div style="clear: both"></div>
+	<div class="main-logo">
 	</div>
-	
-	<div class="row">
-  
-		<div class="col-md-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading lead">Who we are</div>
-				<div class="panel-body">
-          <p>We're three brothers with a lot in common. We like inventing, tinkering, and generally understanding the world around us. We've put this site together as a place to share some of our more polished projects with the world (and as an excuse to learn web development...). Need to know more?</p>
-          <a class="btn btn-primary" href = "{{url_for('about')}}">Find out more about us</a>
-
-				</div>
+	<div>
+		<div class="home-container">
+			<div class="home-tagline">
+				<ul>
+					<li>
+						<h1>Our&nbsp;Projects, Our&nbsp;Passion:</h1>
+					</li>
+					<li>
+						<p>Welcome&nbsp;to Schoolcraft&nbsp;Specialties</p>
+					</li>
+				</ul>
+				<!-- <div style="clear: both"></div> -->
 			</div>
 		</div>
-					
-		<!--Featured panel-->
-		<div class="col-md-8">
-			<div class="panel panel-primary">
-				<div class="panel-heading lead"><i>Featured Product: </i><a href="{{url_for('smartswitch')}}"><font color="white">The Smart Switch</font></a></div>
-				<div class="panel-body">
-					<ul>
-						<a href="{{url_for('smartswitch')}}"><img src="static/img/smartswitch.jpg" class="aboutimg"></a>
-						<h4>Joe's latest project:</h4>
-						<a href="{{url_for('smartswitch')}}"><h5>The Smart Switch for the Line 6 DL4</h5></a>
-						<p>
-						Finally, there's an easy way to tap in dotted eighth notes on your DL4. This small (1x1 in.) circuit will completely enhance
-						the usability of your Line 6 DL4 unit. Based on the user friendly Arduino platform, the powerful ATtiny85 is comes pre-programmed 
-						to give you 1/4 note to dotted 1/8th note conversion seemlessly. Beyond that, The Smart Switch gives you the ability to simulate an 
-						expression pedal input, giving you two presets per delay type, for a total of 6 presets without the need of a clunky, space consuming external expression 
-						pedal.
-						</p>
-					</ul>	
-				</div>
-			</div>
-		</div>
-	
-		<!--What's new panel-->
-		<!--
-		<div class="col-md-3">
-			<div class="panel panel-info">
-				<div class="panel-heading lead"><i>What's New:</i></div>
-				<div class="panel-body">
-					<li type="disc">Check out the new Website!</li>
-					<p></p>
-					<li type="disc">Joe's new DL4 based <a href="{{url_for('smartswitch')}}">project</a></li>
-					<p></p>
-					<li type="disc">Ben's wrestling <a href="{{url_for('benwrestling')}}">videos</a></li>
-					<p></p>
-					<li type="disc">About us <a href="{{url_for('about')}}">section</a></li>
-					<p></p>
-					<li type="disc">Our new <a href="{{url_for('index')}}">home page</a></li>
-					<p></p>
-					<li type="disc">Our new featured product section</li>
-					<p></p>
-					<li type="disc">Our what's new section</li>
-					<p></p>
-					<p> </p>
-				</div>
-			</div>
-		</div>
-		-->
-		<!--Coming Soon panel-->
-<!-- 		<div class="col-md-4">
-			<div class="panel panel-danger">
-				<div class="panel-heading lead"><i>Coming Soon:</i></div>
-				<div class="panel-body">
-					<li type="disc">More website features</li>
-					<br>
-					<li type="disc">A featured product section</li>
-					<br>
-					<li type="disc">A what's new section</li>
-					<br>
-					<li type="disc">More projects</li>
-					<br>
-					<li>smoother ordering</li>
-					<br>
-					<p>Check out our blog with more of our projects on it <a href="http://sonsofinvention.wordpress.com/" target="_blank">here</a>.</p>
-				</div>
-			</div>
-		</div> -->
-		
 	</div>
+	<!-- <div class="info-place">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Who We Are</h2>
+					<img src="static/img/brothers2.jpg">
+				</div>
+				<div class="col-md-4">
+					<h2>What We Do</h2>
+					<img src="/static/img/bar_end_header.jpg">
+				</div>
+				<div class="col-md-4">
+					<h2>Featured Product</h2>
+					<img src="static/img/dl4main.jpg">
+				</div>
+			</div>
+		</div>
+	</div> -->
 </div>
 {% endblock %}

@@ -1,4 +1,39 @@
 
+/* Home Page Styling */
+.main-logo{
+	background: url(/static/img/logo.png) no-repeat;
+	background-size: 75% 75%;
+	background-position: center center;
+	height: 350px;
+	/* border-bottom: 1px solid #dbdbdb; */
+}
+
+.home-tagline{
+	position: relative;
+	left: 10%;
+}
+
+.home-container{
+	/* background-color: #0066CC; */
+}
+
+.home-tagline h1{
+	font-size: 35px;
+	font-weight: bold;
+	color: #428BCA;
+}
+
+.home-tagline p{
+	font-size: 35px;
+	padding-left: 10px;
+}
+
+.home-tagline li{
+	display: inline-block;
+}
+
+/* End Home Page Styling */
+
 #smartswitchjumbo{
   background-color:#FFFFFF;
   color:black;
@@ -9,12 +44,6 @@
 	width: 500px;
 	max-width: 100%;
 	margin-bottom: 10px;
-}
-
-#homejumbo{
-  background-color:#FFFFFF;
-  color:black;
-  border: 2px solid #428BCA;
 }
 
 .rightpic{
@@ -52,13 +81,6 @@
   max-width:45%;
   margin: 20px;
 }
-
-#mainlogo{
-  width:540px;
-  max-width: 90%;
-  margin: 10px;
-}
-
 
 
 .text-primary {
