@@ -33,16 +33,6 @@ def benwrestling():
 def about():
   return render_template('about.html',
     title = 'About Us')
-
-@app.route('/joetest', methods = ['GET'])
-def joetest():
-  return render_template('joetest.html',
-    title = 'Testing, 1, 2, 3')
-
-@app.route('/briantest', methods = ['GET'])
-def briantest():
-  return render_template('briantest.html',
-    title = 'Testing, 1, 2, 3')
 	
 @app.route('/BarEnds', methods = ['GET'])
 def barends():
