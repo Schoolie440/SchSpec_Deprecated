@@ -15,9 +15,14 @@ def send_email(subject, sender, recipients, text_body, html_body):
     send_async_email(msg)
 
 
-def order_confirmation(email):
+def order_confirmation(order):
     send_email("Order Confirmation - Schoolcraft Specialties",
         ADMINS[0],
-        [email],
+        [order.email],
         render_template("email_order_response.txt"),
         render_template("email_order_response.html"))
+    send_email("Order Notification - Schoolcraft Specialties",
+        ADMINS[0],
+        ['brian@schoolcraftspecialties.com'],
+        render_template("email_order_notification.txt", order = order),
+        render_template("email_order_notification.html", order = order))

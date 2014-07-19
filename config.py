@@ -39,7 +39,8 @@ MAIL_PASSWORD = '974c434062267b6f886fe8da8a764030'
 
 
 # administrator list
-ADMINS = ['brian@schoolcraftspecialties.com']
+ADMINS = ['admin@schoolcraftspecialties.com',
+          'brian@schoolcraftspecialties.com']
 
 # pagination
 POSTS_PER_PAGE = 5
