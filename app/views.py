@@ -94,7 +94,11 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
-        return oid.try_login(form.openid.data, ask_for = ['nickname', 'email'])
+        try:
+          return oid.try_login(form.openid.data, ask_for = ['nickname', 'email'])
+        except:
+          app.logger.exception("Oops:")
+          return redirect(url_for('index'))
     return render_template('login.html', 
         title = 'Sign In',
         form = form,
@@ -107,13 +111,7 @@ def after_login(resp):
         return redirect(url_for('login'))
     user = User.query.filter_by(email = resp.email).first()
     if user is None:
-        nickname = resp.nickname
-        if nickname is None or nickname == "":
-            nickname = resp.email.split('@')[0]
-        user = User(nickname = nickname, email = resp.email, role = ROLE_USER)
-        db.session.add(user)
-        db.session.commit()
-    remember_me = False
+        return redirect(url_for('index'))
     if 'remember_me' in session:
         remember_me = session['remember_me']
         session.pop('remember_me', None)
