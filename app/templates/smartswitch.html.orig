@@ -1,0 +1,226 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--This is how you change somethings color: style="background-color: #428BCA" -->
+
+<div id="smartswitchjumbo" class="jumbotron">
+  <div class="row">
+    <div class="col-sm-5">
+      <h1 style="padding-left: 5%; padding-top: 10%;"><b>The Smart Switch</b></h1>
+      <h3 style="padding-left: 5%">Finally, an easy way to tap in dotted 1/8ths on&nbsp;your&nbsp;DL4.</h3>
+    </div>
+    <div class="col-sm-7">
+      <img src="static/img/dl4main.jpg" id="smartswitchmainimg" align="right">
+    </div>
+  </div>
+</div>
+
+<!-- <div class="alert alert-danger"><h3><i>This product is in Beta Testing. To be placed on the pre-order list, please order below.</i></h3></div> -->
+	
+
+<div class="row">
+<!--Mod overview Panel-->
+	<div class="col-md-6">
+		<div class="panel panel-primary" id="mod_overview_panel">
+			<div class="panel-heading lead">Mod Overview</div>
+			<div class="panel-body">
+				
+				<p>
+				The DL4 Smart Switch gives you the ability to convert tap tempo quarter notes to dotted eighth notes on any delay setting at any time. On top of that, you
+				also get the option to switch quickly between two presets per delay type without the need of an external expression pedal.
+				</p>
+        
+        <h4><b>What it does:</b></h4>
+        <ul>
+          <li>Convert 1/4 note taps to dotted 1/8th tempo
+          <ul>
+            <li>Any delay setting</li>
+            <li>Any time</li>
+            <li>Simply Tap the new Smart Switch, and you've got dotted eighths</li>
+          </ul>
+          
+          <li>Double your presets</li>
+          <ul>
+            <li>Simulate an expression pedal without the bulk</li>
+            <li>Give each delay setting a "heel down" and "toe down" setting</li>
+            <li>Just press and hold the Smart Switch to change settings</li>
+            <li>The cool new LED tells you what setting you're on</li>
+          </ul>
+        </ul>
+        
+				<p>
+				The Smart Switch mod involves installing a new footswitch on the DL4 that is connected to the Smart Switch circuit board inside of the pedal.
+				When you tap in quarter notes on the new switch they are converted into dotted eighth notes and sent to the DL4 via the Smart Switch circuit. 
+				Another feature, the Double Preset Mod, provides the ability to simulate having an expression pedal plugged into the DL4. By pressing and holding the 
+				new footswitch down for about 1 second, the Smart Switch circuit will simulate you moving the expression pedal from the heel down position to the toe down 
+				position or vice-versa. This allows you to have two different presets per delay type. See the <a href="{{url_for('smartswitch')}}#modinfo">Mod Info</a> section below for more information.
+				</p>
+				<p><strong class="text-danger">Please Note:</strong> There will be a waiting list. I make parts/PCB orders in batches of 6. I will wait for 6 orders to come in
+				before I place a parts order. After the parts are in, I'll ask for payment and then ship you the kit.
+				</p>
+				<p>
+				Check out the Mod Kit and Pricing section to the right for more details on shipping, price, etc. Also, you can download the source code,
+				installation manual, and Smart Switch schematic completely for free. Be sure to check out the <a href="{{url_for('smartswitch')}}#demovideos">demo videos</a> below as well. Thanks for your interest in this mod, and best of luck!
+				</p>
+			</div>
+		</div>
+	
+	</div>
+	
+	<!--Mod Pricing Panel-->
+	<div class="col-md-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading lead">Mod Kit and Pricing</div>
+			<div class="panel-body">
+				<div class="col-md-6">
+					<p><h4><b>Logistics:</b></h4></p>
+					<p>
+					<ul>
+						<li>What's included:</li>
+            <ul>
+              <li>Smart Switch PCB and LED breakout PCB</li>
+              <li>Programmed Microcontroller</li>
+              <li>All components necessary</li>
+              <ul>
+                <li>Footswitch</li>
+                <li>Resistors, MOSFETS, etc</li>
+                <li>RGB Indicator LED</li>
+                <li>Wire</li>
+              </ul>
+              
+              <li><em>Kit is unassembled, you do all the soldering</em></li>
+            </ul>
+						<li>Kit comes with installation and use manual</li>
+						<li>Waiting list of 6 orders</li>
+						<li class="text-danger"><b>We are not responsible for damage done to your pedal</b></li>
+					</ul>
+					</p>
+					<p><h4><b>Kit Pricing:</b></h4></p>
+					<ul>
+						<li>Full Kit: $40.00 USD</li>
+						<li>Shipping: Free to Continental United States</li>
+						<li><b>Payment via PayPal (invoice sent upon order)</b></li>
+						<p></p>						
+					</ul>
+				</div>
+				<div class="col-md-6"">
+					<img src="static/img/smartswitch.jpg" class="rightpic">
+<<<<<<< HEAD
+					<div style="padding-left: 40px"><a class="btn btn-primary btn-default active" href="{{url_for('smartswitch_order')}}"><font color="white">Order Now!</font></a></div>
+=======
+					<div style="padding-left: 40px"><a class="btn btn-primary btn-default active" href="mailto:joe@schoolcraftspecialties.com?subject=Smart Switch Order&body=Thanks for your investment in our product! Please%20fill%20out%20the%20following%20information%3A%0A%0ANumber%20of%20Smart%20Switch%20Kits%3A%20X%0A%0AName%3A%20XXXX%20XXXX%0A%0AFull%20Address%3A%0AXXXXXX%0AXXXXXX%0A%0ABy%20sending%20this%20email%2C%20you%20agree%20to%20the%20disclaimer/agreement%20here%3A%0Awww.schoolcraftspecialties.com/SmartSwitch%23disc"><font color="white">Order Now by Email</font></a></div>
+>>>>>>> master
+					<br>
+					<ul>
+						<li><a href="static/doc/DL4_Smart_Switch_v2.1.txt" target="_blank">View the source code here (updated 04/04/2014)</a></li>
+						<li><a href="static/doc/DL4 Smart Switch Tiny Rev 2.pdf" target="_blank">View the schematic here</a></li>
+						<li><a href="static/doc/SmartSwitchManual v2.1.pdf" target="_blank">View the Installation Manual here (updated 04/04/2014)</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+          <div style="clear: both"></div>
+
+	</div>
+	
+</div>
+
+
+<div class="panel panel-primary">
+	<div class="panel-heading lead" id="demovideos">Demo Videos</div>
+	
+	<div class="panel-body">
+		<p>Here are some demonstrations of the Smart Switch kit...enjoy!
+		</p>
+    <div class="row">
+      <div class="col-sm-4">
+        <h4><b>Dotted eighth conversion:</b></h4>
+        <iframe class="youtube" src="//www.youtube.com/embed/Fqbrts-ZyH4?rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-sm-4">
+        <h4><b>The double preset mod:</b></h4>
+        <iframe class="youtube" src="//www.youtube.com/embed/hI35smcWdKI?rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-sm-4">
+        <h4><b>Under the hood:</b></h4>
+        <iframe class="youtube" src="//www.youtube.com/embed/1TKWouzDYhc?rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    
+	</div>
+	
+</div>
+
+
+
+
+<div class="panel panel-primary" id="modinfo">
+	<div class="panel-heading lead">Mod Info</div>
+	<div class="panel-body">
+		<h3>Mod Details</h3>
+		<p>
+		The kit comes with a programmed micro-controller, the Smart Switch PCB, the LED breakout board, all the components and 
+		instructions necessary to complete the dotted eighth mod, double preset mod, and even the parts and instructions necessary to get rid
+		of that nasty volume drop that plagues the DL4. Check out the <a href="{{url_for('smartswitch')}}#skillsrequired">Skills Required</a> section below to 
+		see if you have what it takes to do the mod. I also strongly recommend looking through the installation manual <a href="static/doc/SmartSwitchManual v2.pdf" target="_blank">here</a>.
+		</p>
+		<!--<h3 id="betatesters">Beta Testers</h3>
+		<p>
+		The first six people to email me at joe@schoolcraftspecialties.com will be able to purchase the mod as a beta tester. What does this mean though? 
+		A beta tester gets to buy the mod at a discounted rate (see below). However, I ask that they be prepared to work out a few potential bugs. 
+		So far, the several mods that I have performed have operated correctly and without defect, but I'd like to leave some wiggle room and hear some 
+		feedback from the first of you who have decided to take the leap and attempt the mod on your own. So, in a nutshell:
+		<ul>
+			<li>Be prepared to have issues with the mod</li>
+			<li>Agree to contact me if you have issues so we can work through them</li>
+			<li>If you have suggestions, please let me know as well</li>
+		</ul>
+		<p>As a beta tester you will benefit from:</p>
+		<ul>
+			<li>A 50% discount on the mod</li>
+			<li>Being among the first to have a DL4 with the Smart Switch</li>
+		</ul>
+		<p>
+		Like I've said, I've done three mods with this system with minimal problems. All of them have gone smoothly so I'm not expecting many hangups to 
+		appear. The biggest issue I can foresee is the directions that I printed up not being clear enough. After I ship out the beta tester boards, I'll 
+		make adjustments as per their suggestions and order a bigger batch of PCBs so I can start selling to everyone. 
+		Anyway, I hope you are all interested in this mod still. I'm excited about getting it to you guys! 
+		</p>
+		-->
+		<h3 id="skillsrequired">Skills Required</h3>
+		<p>
+		To install this kit, you should have experience with a soldering iron. It would be beneficial
+		if you have done some tinkering on pedals before too. This is a bit of an in depth mod; it includes a lot of soldering and drilling a few holes in your case.
+		If you don't feel comfortable doing it, maybe wait and see what other people say about the mod before attempting it. It'd be a shame to destroy a $200.00 pedal over a 
+		$40.00 modification.
+		</p>
+		<p>
+		That being said, it is very important that you read and understand the disclaimer/agreement below.
+		</p>
+		<h3 class="text-danger" id="disc">Disclaimer/Agreement</h3>
+		<p>
+		<ul>
+		
+		<li><b>We are in no way responsible for damage done to your pedal.</b></li>
+		<li><b>We will do our best to support you with the mod, but it may take a while for us to respond as this is a side project for us.
+		</b></li>
+		<li><b>By visiting this page and deciding to purchase the Smart Switch for the Line 6 DL4 you remove us from any fiscal responsibility regarding the fate
+		of your pedal.
+		</b></li>
+		<li><b>By visiting this page and deciding to purchase the Smart Switch for the Line 6 DL4 you understand that there is a potential risk of damaging your pedal, and that we
+		at Schoolcraft Specialties are not responsible for damaging your pedal, and we will not be able to give you financial compensation.
+		</b></li>
+		
+		<li><b>Finally, by visiting this page and deciding to purchase the Smart Switch for the Line 6 DL4 you understand that we at Schoolcraft Specialties 
+		are in no way connected, affiliated, or are trying to imply affiliation with Line 6 and their products.</b></li>
+		
+		</ul>
+		</p>
+	</div>
+	
+</div>
+
+
+{% endblock %}
