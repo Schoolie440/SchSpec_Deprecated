@@ -9,6 +9,9 @@ from sqlalchemy import desc
 
 from flask.ext.mail import Message
 
+from emails import order_confirmation
+
+
 
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/index', methods = ['GET', 'POST'])
@@ -48,9 +51,9 @@ def barend_orders():
 def sendemail():
 	msg = Message(
               'Hello',
-	       sender='no-reply@schoolcraftspecialties.com',
+	       sender='brian@schoolcraftspecialties.com',
 	       recipients=
-               ['brian.schoolcraft@allisontransmission.com'])
+               ['brian.p.schoolcraft@gmail.com'])
 	msg.body = "This is the email body"
 	mail.send(msg)
 	return "Sent"
@@ -76,6 +79,7 @@ def smartswitch_order():
     db.session.add(order)
     db.session.commit()
     flash('Your order has been placed - Thank you!')
+    order_confirmation(order.email)
     return redirect(url_for('smartswitch'))
 
   return render_template('smartswitch_order_form.html',
