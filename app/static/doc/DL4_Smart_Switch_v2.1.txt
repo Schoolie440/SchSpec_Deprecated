@@ -1,0 +1,234 @@
+/*
+The Smart Switch for the Line 6 DL4
+
+Features:      1/4 note to dotted 1/8th conversion
+               Double Preset Expression Pedal Simulation
+
+Primary MCU:   ATtiny85
+
+Secondary MCU: Any Arduino supported MCU
+
+Designed by:   Joe Schoolcraft
+               Brian Schoolcraft
+               of Schoolcraft Speciatlies
+               
+Support:       www.schoolcraftspecialties.com/SmartSwitch
+ */
+
+/*Pin definition
+  Change these to whatever pins you want if you're using an ATmega328 or other chip
+*/
+#define  TEMPO_IN   0       //ATtiny Pin 5
+#define  SELPIN2    1       //ATtiny Pin 6
+#define  SELPIN1    2       //ATtiny Pin 7
+#define  SELPIN3    3       //ATtiny Pin 2
+#define  TEMPO_OUT  4       //ATtiny Pin 3
+
+//Constants
+#define  DEBOUNCE  40        //Debounce time for the footswitch
+#define  PULSES  4           //Number of pulses to send to the transistor which "taps" the tempo in on the DL4
+#define  OUTPUT_TIME  40     //Length of pulse
+#define  HOLD_TIME  750      //Time it takes to trigger the double preset mod (in ms). Make this lower if you want it to switch faster.
+#define  RESET_TIME  2000    //Timeout for the tap averager
+
+
+// Variables that will change
+int sum;
+int currentTimer[3];  // array of most recent tap counts
+
+byte tapCount = 0;
+byte pulseCount = 4;    // Tracks the number of pulses sent to pedal
+byte divisor;
+
+boolean  readingHold = true; // double preset switch reading initialized
+boolean tempHoldState= true; // previous reading in hold state read routine
+boolean reading  = true; // temporary button state storage (used in debounce routine)
+boolean tapState = true;   // current tap button state
+boolean holdState = true; //current hold button state
+boolean lastTapState = true;  // the last tap button state 
+boolean lastHoldState = true; //previous reading
+boolean lastButtonState = false;   // the previous reading from the input pin
+
+float tempoScale = 0.75;  // Tempo scale factor (dotted eighth, etc)
+float interval;           //Tempo tapped in
+float scaledInterval;     //The scaled Tempo
+
+// the following variables are long's because the time, measured in miliseconds,
+// will quickly become a bigger number than can be stored in an int.
+
+unsigned long timeoutTime = 0;  // this is when the timer will trigger next 
+unsigned long indicatorTimeout; // sets the turn off time for the LED
+unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
+unsigned long lastTap = 0; // when the last tap happened 
+
+
+void setup()
+{
+  pinMode( TEMPO_IN, INPUT );    // tap switch - tap it to set the tempo
+  pinMode( TEMPO_OUT, OUTPUT );  // Tempo output to pedal
+  pinMode( SELPIN3, OUTPUT );    // Preset indicator LED
+  pinMode( SELPIN1, OUTPUT );    //To MOSFET for double preset
+  pinMode( SELPIN2, OUTPUT );    //To MOSFET for double preset
+  
+  digitalWrite(SELPIN1, HIGH);    //This sets the expression simulator to the
+  digitalWrite(SELPIN2, HIGH);     //"heel down" position every time the pedal is
+  digitalWrite(SELPIN3, LOW);     //power cycled.
+}
+
+void loop()
+{
+  //Read if there's been a tap by debouncing the switch
+  tapState = debounce(&lastButtonState, &lastDebounceTime, DEBOUNCE, HOLD_TIME, TEMPO_IN, &tapCount, false, currentTimer, 3);
+  
+  //See if the switch has been pressed and held
+  holdState = debounce(&tempHoldState, &lastDebounceTime, HOLD_TIME, DEBOUNCE, TEMPO_IN, &tapCount, true, currentTimer, 3);
+  
+  //Read the intervals between taps into an array and average them and then truncate to a bpm
+  getTapTempo(tapState, &lastTapState, &tapCount, currentTimer, 3, &interval, &divisor, &sum, &lastTap, RESET_TIME, &pulseCount);
+  
+  //Scale the tempo
+  scaledInterval = interval*tempoScale;
+  
+  //Output the tempo to the DL4
+  output(&timeoutTime, &indicatorTimeout, PULSES, &pulseCount, TEMPO_OUT, currentTimer, 3, scaledInterval);
+  
+  //Set the expression simulator MOSFETs and the indicator LED
+  doublePreset(SELPIN1, SELPIN2, SELPIN3, holdState, &lastHoldState);
+}
+//Actuates the Double Preset MOSFET
+void doublePreset(byte actuator, byte indicator1, byte indicator2, byte holdState, byte *lastHoldState){
+  static byte holdNumber = 0;
+  if(holdState == LOW && holdState != *lastHoldState){
+    switch(holdNumber){
+    case 1:
+      digitalWrite(actuator, HIGH);
+      digitalWrite (indicator1, HIGH);
+      digitalWrite (indicator2, LOW);
+      holdNumber = 0;
+     break;
+
+    case 0:
+      digitalWrite(actuator, LOW);
+      digitalWrite (indicator1, LOW);
+      digitalWrite (indicator2, HIGH);
+      holdNumber = 1; //sends it back to second if statement on next button press
+      break;
+    }
+  }
+  *lastHoldState = holdState; // keep track of the state for the next loop
+  return;
+}
+
+//Debounces the footswitch
+boolean debounce(boolean *lastButtonState, unsigned long *lastDebounceTime, int downTime, byte upTime, byte readPin, byte *tapCount, boolean hold, int valuesArray[], byte arrayLength)
+{
+  boolean stateTap = true;
+  boolean stateHold = true;
+  boolean reading = digitalRead(readPin);
+
+  if (reading != *lastButtonState) {  // button state just changed
+    *lastDebounceTime = millis();     // reset the debouncing timer
+  }
+  if(hold == false){
+    if ((millis() - *lastDebounceTime) >= downTime && stateTap == true) {
+      stateTap = reading;
+    }
+  }
+  else if((millis() - *lastDebounceTime) >= downTime && stateHold == true){
+    stateHold = reading;
+  }
+  else{
+    stateTap = true;
+    stateHold = true;
+  }
+  if ((millis() - *lastDebounceTime) >= upTime && stateHold == false){
+    stateHold = reading;
+    *tapCount = clearTaps(valuesArray, arrayLength);
+  }
+  *lastButtonState = reading; // save the state for comparison on the next loop
+
+  if(hold == false){
+    return stateTap;
+  }
+  else{
+    return stateHold;
+  }
+}
+
+//Fills out the tempo values array & calculates an interval
+void getTapTempo(boolean trigger, boolean *lastTrigger, byte *triggerCounts, int valuesArray[], int arrayLength, float *interval, byte *divisor, int *sum, unsigned long *lastTap, int maxMillis, byte *pulseCount){
+  int bpm;
+  if(trigger == false && trigger != *lastTrigger){
+    if(*triggerCounts != 0){
+      *triggerCounts += 1;
+      for(byte n = arrayLength - 1; n > 0; n--){
+        valuesArray[n] = valuesArray[n - 1];
+      }
+      valuesArray[0] = millis() - *lastTap;
+      *pulseCount = 0;  // reset pulse count to zero
+      *lastTap = millis();
+      *divisor = *triggerCounts - 1;
+      *divisor = constrain(*divisor, 0, arrayLength);
+      for(byte n = 0; n < *divisor; n++){
+        *sum += valuesArray[n];
+      }
+      *interval = *sum / *divisor;
+      bpm = 1.0/(*interval/60000);
+      *interval = 60000/bpm;
+      *sum = 0;
+    }
+    else{
+      *lastTap = millis();
+      *triggerCounts += 1;
+    }    
+  }
+  *lastTrigger = trigger;
+
+  if(millis() - *lastTap >= maxMillis){
+    *triggerCounts = clearTaps(currentTimer, arrayLength);
+    *sum = 0;
+  }
+  return;
+}
+
+//Outputs the pulses to the MOSFET to pull the tempo footswitch on the DL4 LOW
+void output(unsigned long *timeoutTime, unsigned long *indicatorTimeout, byte pulses, byte *pulseCount, byte outputPin, int currentTimer[], byte arrayLength, float interval){
+  // check for timer timeout 
+  if (millis() >= *timeoutTime && *pulseCount < pulses)  // it's time to send the output pulse
+  {
+    *pulseCount += 1; // keep track of how many pulses we've sent
+
+    *indicatorTimeout = millis() + OUTPUT_TIME;  // set the time for the output to turn back off 
+
+    *timeoutTime = millis() + interval; // set the time for the next output pulse
+  }
+
+  // send the output pulse to the LED and the transistor
+
+  if( millis() < *indicatorTimeout ) {
+    digitalWrite(outputPin, HIGH );
+  }
+  else {
+    digitalWrite(outputPin, LOW );
+  }
+
+  if (*pulseCount > pulses - 1){
+    clearTaps(currentTimer, arrayLength);
+  }
+  return;
+}
+
+//Clears currentTimer array when called
+byte clearTaps(int valuesArray[], int arrayLength){
+  byte taps = 0;
+  for(byte t = 0; t < arrayLength; t++){
+    valuesArray[t] = 0;
+    if(valuesArray[t + 1] == 0){
+      break;
+    }
+  }
+  return taps;
+}
+
+
+
