@@ -1,13 +1,13 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
-from app import app, mail, db, lm, oid
+from app import app, mail, db, lm
 from forms import LoginForm, OrderForm
 from models import User, ROLE_USER, ROLE_ADMIN, Order
 from datetime import datetime
 from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS
 from sqlalchemy import desc
 
-from flask.ext.mail import Mail, Message
+from flask.ext.mail import Message
 
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -48,9 +48,9 @@ def barend_orders():
 def sendemail():
 	msg = Message(
               'Hello',
-	       sender='me@example.com',
+	       sender='no-reply@schoolcraftspecialties.com',
 	       recipients=
-               ['brian.p.schoolcraft@gmail.com'])
+               ['brian.schoolcraft@allisontransmission.com'])
 	msg.body = "This is the email body"
 	mail.send(msg)
 	return "Sent"
@@ -87,24 +87,36 @@ def load_user(id):
     return User.query.get(int(id))
 	
 @app.route('/login', methods = ['GET', 'POST'])
-@oid.loginhandler
+# @lm.loginhandler
 def login():
     if g.user is not None and g.user.is_authenticated():
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
-        try:
-          return oid.try_login(form.openid.data, ask_for = ['nickname', 'email'])
-        except:
-          app.logger.exception("Oops:")
-          return redirect(url_for('index'))
+        username = request.form['username']
+        password = request.form['password']
+        registered_user = User.query.filter_by(username=username).first()
+        if registered_user:
+          if registered_user.check_password(password):
+            login_user(registered_user)
+            flash('Logged in Successfully!')
+            return redirect(request.args.get("next") or url_for("index"))
+          else:
+            flash('Invalid login. Please try again.')
+            return redirect(url_for('login'))
+        else:
+          flash('Username not recognized. Please try again.')
+          return redirect(url_for('login'))
+          
+        
+
     return render_template('login.html', 
         title = 'Sign In',
         form = form,
         providers = app.config['OPENID_PROVIDERS'])
 		
-@oid.after_login
+# @oid.after_login
 def after_login(resp):
     if resp.email is None or resp.email == "":
         flash('Invalid login. Please try again.')

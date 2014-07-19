@@ -74,6 +74,7 @@
 		  
           <ul class="nav navbar-nav navbar-right">
             {% if g.user.is_authenticated() %}
+              <li> <a href="{{url_for('orders')}}">Orders</a></li>
               <li> <a href="{{url_for('logout')}}">Logout</a></li>
             {% endif %}
             <li><img src="/static/img/logonavbar.png" id="navbar-logo" class="img-rounded"></li>

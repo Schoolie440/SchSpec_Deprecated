@@ -4,17 +4,30 @@ from app import app
 import re
 from flask import url_for
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
 ROLE_USER = 0
 ROLE_ADMIN = 1
 
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    nickname = db.Column(db.String(64), unique = True)
+    username = db.Column(db.String(64), unique = True)
+    pw_hash = db.Column(db.String(128))
     email = db.Column(db.String(120), unique = True)
     role = db.Column(db.SmallInteger, default = ROLE_USER)
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime)
+    
+    def __init__(self, username, password):
+        self.username = username
+        self.set_password(password)
+        
+    def set_password(self, password):
+        self.pw_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.pw_hash, password)
 
     def is_authenticated(self):
         return True
@@ -29,7 +42,7 @@ class User(db.Model):
         return unicode(self.id)
 
     def __repr__(self):
-        return '<User %r>' % (self.nickname)
+        return '<User %r>' % (self.username)
         
     def avatar(self, size):
         return 'http://www.gravatar.com/avatar/' + md5(self.email).hexdigest() + '?d=mm&s=' + str(size)
