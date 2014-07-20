@@ -69,6 +69,7 @@ def orders(page = 1):
     
 @app.route("/smartswitch_order", methods = ['GET', 'POST'])
 def smartswitch_order():
+  print datetime.utcnow()
   form = OrderForm()
   if form.validate_on_submit():
     order = Order(email = form.email.data, 
@@ -78,6 +79,8 @@ def smartswitch_order():
             order_type = 'smartswitch')
     db.session.add(order)
     db.session.commit()
+    
+    
     flash('Your order has been placed - Thank you!')
     order_confirmation(order)
     return redirect(url_for('smartswitch'))
@@ -142,3 +145,10 @@ def before_request():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+    
+@app.route('/email')
+def email():
+  order = Order.query.filter(Order.id == 35).first()
+  print 'Date: ',order.order_date
+  print order.product
+  return render_template("email_order_notification.html", order = order)

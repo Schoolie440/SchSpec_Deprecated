@@ -15,9 +15,9 @@ class OrderForm(Form):
     email2 = TextField('Confirm your email:', validators = [EqualTo('email', message='Email address must match')])
     comments = TextAreaField('Anything else you need to tell us?')
     # captcha = RecaptchaField()
-    order_type = RadioField('Select an order type', validators = [Required('Please select an order type')], 
-                                                    choices=[('beta','I want to be a Beta Tester!'),
-                                                             ('standard',"I'll wait until Beta Testing is finished. Put me on the Pre-Order List!")])
+    # order_type = RadioField('Select an order type', validators = [Required('Please select an order type')], 
+                                                    # choices=[('beta','I want to be a Beta Tester!'),
+                                                             # ('standard',"I'll wait until Beta Testing is finished. Put me on the Pre-Order List!")])
 
 
         
