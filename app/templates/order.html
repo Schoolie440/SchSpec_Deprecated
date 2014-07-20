@@ -3,7 +3,7 @@
     <div class="panel-heading"><p><strong>Order Number: {{order.id}}</strong></p></div>
     <div class="panel-body">
       <p>Product: {{order.product}}</p>
-      <p>Date: {{order.order_date}}</p>
+      <p>Date: {{momentjs(order.order_date).format('MMM Do YYYY, h:mm a')}}</p>
       <p>Email: {{order.email}}</p>
       <p>Comments: {{order.comments}}</p>
       <p>Type: {{order.order_type}}</p>
