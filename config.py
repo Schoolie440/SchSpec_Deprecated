@@ -34,14 +34,17 @@ elif RUN_TYPE == 'production':
   if os.environ.get('SS_DATABASE_URL') is None:
     print 'DB Error - No Environment Variable'
     DB_STATUS = 'Env: production; No Environment Variable'    
-    DB_STATUS = 'Env: Production'
   else:
     SQLALCHEMY_DATABASE_URI = os.environ['SS_DATABASE_URL']
+    DB_STATUS = 'Env: Production'
+
 elif RUN_TYPE == 'local':
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
     DB_STATUS = 'Env: Local'
 else: 
   print 'Environment invalid'
+  DB_STATUS = 'Env: Invalid'
+
 
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')    
 
