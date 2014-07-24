@@ -12,7 +12,7 @@ else:
   RUN_TYPE = 'local'
 
 
-if: RUN_TYPE == 'production':
+if RUN_TYPE == 'production':
   os.environ['SS_DATABASE_URL'] = 'mysql://apps:Amanda09@localhost/SchSpec'
 elif RUN_TYPE == 'test':
   os.environ['SS_DATABASE_URL'] = 'mysql://apps:Amanda09@localhost/SchSpecTest'
