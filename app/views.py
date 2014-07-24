@@ -76,7 +76,7 @@ def smartswitch_order():
             comments = form.comments.data,
             product = "SmartSwitch",
             order_date = datetime.utcnow(),
-            order_type = 'smartswitch')
+            order_type = 'standard')
     db.session.add(order)
     db.session.commit()
     
