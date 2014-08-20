@@ -11,10 +11,12 @@
 .home-tagline{
 	position: relative;
 	left: 10%;
+	margin: 0 auto;
 }
 
 .home-container{
 	/* background-color: #0066CC; */
+	max-width: 90%;
 }
 
 .home-tagline h1{
@@ -32,11 +34,62 @@
 	display: inline-block;
 }
 
+.container-wwa img{
+	height: 550px;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 20px 20px 20px 20px;
+}
+
+.container-wwa h1{
+	font-size: 50px;
+	padding-left: 20px;
+	padding-top: 10px;
+	color: #428BCA;
+}
+
+.container-wwa p{
+	font-size: 20px;
+	padding: 20px 20px 20px 20px;
+}
+
+.container-fp h1{
+	font-size: 50px;
+	padding-left: 20px;
+	padding-top: 10px;
+	color: #428BCA;
+}
+
+.container-fp p{
+	font-size: 20px;
+	padding: 20px 20px 20px 20px;
+}
+
+#carousel-fp{
+	height: 325px;
+	width: 100%;
+	float: right;
+	margin-top: 50px;
+}
+
+#dl4main{
+	height: 250px;
+	width: auto;
+	margin: 9% auto;
+}
+
+#sspcb{
+	height: 250px;
+	width: auto;
+	margin: 9% auto;
+}
+
+
 /* End Home Page Styling */
 
 #smartswitchjumbo{
   background-color:#FFFFFF;
-  color:black;
+  color: black;
   border: 2px solid #428BCA;
 }
 
