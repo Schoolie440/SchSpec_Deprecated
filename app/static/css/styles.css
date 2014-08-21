@@ -106,17 +106,170 @@
 
 /* End Home Page Styling */
 
-#smartswitchjumbo{
-  background-color:#FFFFFF;
-  color: black;
-  border: 2px solid #428BCA;
+
+/* Smart Switch Page Styling */
+
+
+#carousel-ss{
+	height: 325px;
+	width: 90%;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-left: 6.5%;
 }
 
-#smartswitchmainimg{
-	width: 500px;
-	max-width: 100%;
-	margin-bottom: 10px;
+#dl4mainSS{
+	height: 250px;
+	width: auto;
+	margin: 9% auto;
 }
+
+#sspcbSS{
+	height: 250px;
+	width: auto;
+	margin: 9% auto;
+}
+
+#rgbledSS{
+	height: 150px;
+	width: auto;
+	margin: 18% auto;
+}
+
+#SScol5{
+	border-right: solid #C6C1C1;
+	border-width: 1px;
+}
+
+#SScol7 h1{
+	font-size: 50px;
+	margin-left: 10px;
+	margin-top: 0px;
+	color: #428BCA;
+}
+
+#btn-wrapper{
+	padding: 20px 0px 10px 25%;
+}
+
+#pando{
+	border-right: solid #C6C1C1;
+	border-width: 1px;
+}
+
+#pando h2{
+	font-size: 25px;
+	padding-left: 10px;
+}
+
+#pando h3{
+	font-size: 14px;
+	font-style: italic;
+	margin-left: 15px;
+	margin-top: 0px;
+}
+
+#pando h4{
+	padding: 10px 0px 0px 10px;
+	font-size: 14px;
+	color: red;
+	font-weight: bold;
+}
+
+#pando p{
+	padding: 0px 0px 0px 10px;
+	font-style: italic;
+}
+
+#ordernow:hover{
+	background-color: #18CA12;
+}
+
+#ordernow{
+	background-color: #06AE00;
+}
+
+#logandsup h2{
+	padding: 0px 0px 0px 1%;
+	margin-top: 0px;
+	margin-left: 0px;
+	font-size: 20px;
+	color: #428BCA;
+}
+
+#logandsup ul{
+	margin-top: 0px;
+	padding: 0px 0px 0px 11%;
+}
+
+#mo{
+	margin-left: 2%;
+	margin-top: 2%;
+}
+
+#mo h1{
+	font-size: 20px;
+	font-weight: bold;
+	color: #428BCA;
+	margin-top: 0px;
+}
+
+#mo h2{
+	font-size: 18px;
+	margin-top: 0px;
+	border-bottom: solid #C6C1C1;
+	border-width: 1px;
+}
+
+#sr{
+	margin-left: 2%;
+	margin-top: 2%;
+}
+
+#sr h1{
+	font-size: 20px;
+	font-weight: bold;
+	color: #428BCA;
+	margin-top: 0px;
+}
+
+#sr h2{
+	font-size: 18px;
+	margin-top: 0px;
+	border-bottom: solid #C6C1C1;
+	border-width: 1px;
+}
+
+#sr p{
+	font-size: 15px;
+}
+
+#dv{
+	margin-top: 2%;
+}
+
+#dv h1{
+	font-size: 20px;
+	font-weight: bold;
+	color: #428BCA;
+	margin-top: 0px;
+}
+
+#dv h2{
+	font-size: 18px;
+	margin-top: 0px;
+	border-bottom: solid #C6C1C1;
+	border-width: 1px;
+}
+
+#disc{
+	margin-left: 2%;
+	margin-top: 2%;
+}
+
+/* End Smart Switch Page Styling */
+
 
 .rightpic{
 	width: 200px;

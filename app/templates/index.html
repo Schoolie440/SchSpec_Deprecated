@@ -25,15 +25,15 @@
 	<div>
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-		  <li class="active"><a href="#wwa" role="tab" data-toggle="tab">Who We Are</a></li>
-		  <li><a href="#fp" role="tab" data-toggle="tab">Featured Product</a></li>
+		  <li><a href="#wwa" role="tab" data-toggle="tab">Who We Are</a></li>
+		  <li class="active"><a href="#fp" role="tab" data-toggle="tab">Featured Product</a></li>
 		  <li><a href="#ci" role="tab" data-toggle="tab">Contact Info</a></li>
 		</ul>
 
 		<!-- Tab panes -->
 		<div class="tab-content">
 			
-			<div class="tab-pane fade in active" id="wwa">
+			<div class="tab-pane fade" id="wwa">
 				<div class="container-wwa">
 					<div class="row">
 						<div class="col-md-7">
@@ -62,12 +62,11 @@
 				</div>
 			</div>
 		  
-			<div class="tab-pane fade" id="fp">
+			<div class="tab-pane fade in active" id="fp">
 				<div class="container-fp">
-					<!--Image Carousel-->
 					<div class="row">
 						<div class="col-md-7">
-							<h1>The Smart Switch</h1>
+							<a href="{{url_for('smartswitch')}}"><h1>The Smart Switch</h1></a>
 							<p>
 								Finally, there's an easy way to tap in dotted eighth notes on your DL4. This small
 								(1x1 in.) circuit will completely enhance the usability of your Line 6 DL4 unit.
@@ -78,7 +77,9 @@
 								external expression pedal. Learn more about this mod <a href="{{url_for('smartswitch')}}">here</a>.
 							</p>
 						</div>
+						
 						<div class="col-md-5">
+							<!--Image Carousel-->
 							<div id="carousel-fp" class="carousel slide" data-ride="carousel">
 							  <!-- Indicators -->
 							  <ol class="carousel-indicators">
