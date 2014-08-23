@@ -1,48 +1,232 @@
-<!-- extend base layout -->
+
 {% extends "base.html" %}
 
 {% block content %}
 
-<!--This is how you change somethings color: style="background-color: #428BCA" -->
+<div class="row">
+	<div id="SScol5" class="col-md-5">
+		<!--Image Carousel-->
+		<div id="carousel-ss" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+			<li data-target="#carousel-ss" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-ss" data-slide-to="1"></li>
+			<li data-target="#carousel-ss" data-slide-to="2"></li>
+			<li data-target="#carousel-ss" data-slide-to="3"></li>
+		  </ol>
 
-<div class"col-md-12">
-	<div class="row">
-		<div class="col-md-12">
-			<img src="/static/img/bar_end_header.jpg" style="margin-bottom: 20px; border-radius:6px">
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner">
+			<div class="item active">
+			  <img id="barend1" src="static/img/bar_end_installed_3.jpg" alt="static/img/dl4main.jpg">
+			  <!-- <div class="carousel-caption">
+				...
+			  </div> -->
+			</div>
+			
+			<div class="item">
+			  <img id="barend2" src="static/img/bar_end_installed_left.jpg" alt="static/img/smartswitch.jpg">
+			  <!-- <div class="carousel-caption">
+				...
+			  </div> -->
+			</div>
+			
+			<div class="item">
+			  <img id="barend3" src="static/img/bar_end_mirror.jpg" alt="">
+			  <!-- <div class="carousel-caption">
+				...
+			  </div> -->
+			</div>
+			
+			<div class="item">
+			  <img id="barend4" src="static/img/bar_end_parts.jpg" alt="">
+			  <!-- <div class="carousel-caption">
+				...
+			  </div> -->
+			</div>
+			
+			
+			
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-ss" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-ss" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		  </a>
+		</div>
+	</div>
+	<div id="SScol7" class="col-md-7">
+		<h1>Buzz Bomb Bar Ends</h1>
+		<div class="row">
+			<div class="col-md-6" id="pando">
+				<h3>Tired of fatiguing high frequency hum? Bomb the Buzz!</h3>
+				<h2>Kit Price: <font style="color: #06AE00">$40.00 USD</font></h2>
+				<h2>Shipping: <i><font style="color: #06AE00">Free</font>*</i></h2>
+				<div id="btn-wrapper">
+					<a id="ordernow" class="btn btn-default active" href="mailto:joe@schoolcraftspecialties.com?subject=Smart Switch Order&body=Thanks for your investment in our product! Please%20fill%20out%20the%20following%20information%3A%0A%0ANumber%20of%20Smart%20Switch%20Kits%3A%20X%0A%0AName%3A%20XXXX%20XXXX%0A%0AFull%20Address%3A%0AXXXXXX%0AXXXXXX%0A%0ABy%20sending%20this%20email%2C%20you%20agree%20to%20the%20disclaimer/agreement%20here%3A%0Awww.schoolcraftspecialties.com/SmartSwitch%23disc"><font color="white">Order Now by Email</font></a>
+				</div>
+				<h4>Payment via PayPal Only (invoice sent upon order)</h4>
+				<p>
+					<b>Kit comes completely unassembled.</b>
+					<br>
+					*Shipping free only for the continental United States.
+					<br>
+					<b>Please read and understand our disclaimer below.</b>
+				</p>
+			</div>
+			<div class="col-md-6" id="logandsup">
+				<h2>Includes:</h2>
+				<ul>
+					<li>All necessary parts</li>
+					<li>All wire needed</li>
+					<li>Programmed ATtiny85</li>
+					<li>Smart Switch and RGB LED PCBs</li>
+					<li>Footswitch</li>
+				</ul>
+				<h2>Support and Documentation:</h2>
+				<ul>
+					<li>View the source code <a href="static/doc/DL4_Smart_Switch_v2.1.txt" target="_blank">here</a></li>
+					<li>View the schematic <a href="static/doc/DL4 Smart Switch Tiny Rev 2.pdf" target="_blank">here</a></li>
+					<li>View the Installation Manual <a href="static/doc/SmartSwitchManual v2.2.pdf" target="_blank">here</a></li>
+					<li>Support at: <a href="mailto: joe@schoolcraftspecialties.com?subject=Smart Switch Support">joe@schoolcraftspecialties.com</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Tabs -->
+<div>
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="active"><a href="#mo" role="tab" data-toggle="tab">Mod Overview</a></li>
+		<li><a href="#sr" role="tab" data-toggle="tab">Skills Required</a></li>
+		<li><a href="#dv" role="tab" data-toggle="tab">Demo Videos</a></li>
+		<li><a href="#rt" role="tab" data-toggle="tab">Reviews/Testimonials</a></li>
+		<li><a href="#disc" role="tab" data-toggle="tab"><font style="color: red">DISCLAIMER</font></a></li>
+	</ul>
+	
+	<!-- Tab Panes -->
+	<div class="tab-content">
+		<div class="tab-pane fade in active" id="mo">
+			<div class="col-md-8">
+				<h1>Smart Switch Kit</h1>
+				<h2>Mod Overview</h2>
+				<p>
+					The DL4 Smart Switch gives you the ability to convert tap tempo quarter notes to dotted eighth notes on any delay setting at any time. On top of that, you
+					also get the option to switch quickly between two presets per delay type without the need of an external expression pedal.
+				</p>
+			
+				<h4><b>What it does:</b></h4>
+				<ul>
+					<li>Convert 1/4 note taps to dotted 1/8th tempo
+					<ul>
+						<li>Any delay setting</li>
+						<li>Any time</li>
+						<li>Simply Tap the new Smart Switch, and you've got dotted eighths</li>
+					</ul>
+			  
+					<li>Double your presets</li>
+					<ul>
+						<li>Simulate an expression pedal without the bulk</li>
+						<li>Give each delay setting a "heel down" and "toe down" setting</li>
+						<li>Just press and hold the Smart Switch to change settings</li>
+						<li>The new LED tells you what setting you're on</li>
+					</ul>
+				</ul>
+				<h2>Mod Details</h2>
+				<p>
+					The Smart Switch mod involves installing a new footswitch on the DL4 that is connected to the Smart Switch circuit board inside of the pedal.
+					When you tap in quarter notes on the new switch they are converted into dotted eighth notes and sent to the DL4 via the Smart Switch circuit. 
+					Another feature, the Double Preset Mod, provides the ability to simulate having an expression pedal plugged into the DL4. By pressing and holding the 
+					new footswitch down for about 1 second, the Smart Switch circuit will simulate you moving the expression pedal from the heel down position to the toe down 
+					position or vice-versa. This allows you to have two different presets per delay type.
+				</p>
+				<p><strong class="text-danger">Please Note:</strong> There may be a wait! I make parts/PCB orders in batches of 9. You might catch me
+					waiting on parts or PCBs. In that case, I'll wait until the parts are in, and then I'll ask for payment and ship you the kit.
+				</p>
+				<p>
+					Check out the Support and Documentation section above to download the source code,
+					installation manual, and Smart Switch schematic completely for free. Be sure to check out the demo videos as well.
+					Thanks for your interest in this mod, and best of luck!
+				</p>
+			</div>	
+		</div>
+		<div class="tab-pane fade" id="sr">
+			<div class="col-md-8">
+				<h1>Smart Switch Kit<h1>
+				<h2>Installation Skills</h2>
+				<p>
+					To install this kit, you should have experience with a soldering iron. It would be beneficial
+					if you have done some tinkering on pedals before too. This is a bit of an in depth mod; it includes a lot of soldering and drilling a few holes in your case.
+					If you don't feel comfortable doing it, maybe wait and see what other people say about the mod before attempting it. It'd be a shame to destroy a $200.00 pedal over a 
+					$40.00 modification. I strongly recommend looking through the installation manual <a href="static/doc/SmartSwitchManual v2.pdf" target="_blank">here</a> before purchasing
+					the kit.
+				</p>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="dv">
+			<div class="row">
+				<div class="col-sm-4">
+					<h1>Dotted Eighth Conversion:</h1>
+					<iframe class="youtube" src="//www.youtube.com/embed/Fqbrts-ZyH4?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<div class="col-sm-4">
+					<h1>The Double Preset Mod:</h1>
+					<iframe class="youtube" src="//www.youtube.com/embed/hI35smcWdKI?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<div class="col-sm-4">
+					<h1>Under the Hood:</h1>
+					<iframe class="youtube" src="//www.youtube.com/embed/1TKWouzDYhc?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="rt">
+			<div class="col-md-8">
+				<div class="testimonial">
+					<h2>"...arguably the best DL4 mod out there."</h2>
+					<h3>Ben Millikan, Reverb.com | <a href="http://reverb.com/blog/7-best-dl-4-mods" target="_blank">7 Best DL-4 Mods</a></h3>
+				</div>
+				<!-- <div class="testimonial">
+					<h2>"I love the mod!! It makes the dl4 100 times better!!"</h2>
+					<h3>Ulises B. | Illinois, USA</h3>
+				</div>
+				<div class="testimonial">
+					<h2>"...it was very easy to assemble, and the online instructions were great...it works like a champ!"</h2>
+					<h3>Patrick W. | Washington, USA</h3>
+				</div> -->
+			</div>
+		</div>
+		<div class="tab-pane fade" id="disc">
+			<h3 class="text-danger">Disclaimer/Agreement</h3>
+			<ul>
+				<li><b>We are in no way responsible for damage done to your pedal.</b></li>
+				<li><b>We will do our best to support you with the mod, but it may take a while for us to respond as this is a side project for us.
+				</b></li>
+				<li><b>By visiting this page and deciding to purchase the Smart Switch for the Line 6 DL4 you remove us from any fiscal responsibility regarding the fate
+				of your pedal.
+				</b></li>
+				<li><b>By visiting this page and deciding to purchase the Smart Switch for the Line 6 DL4 you understand that there is a potential risk of damaging your pedal, and that we
+				at Schoolcraft Specialties are not responsible for damaging your pedal, and we will not be able to give you financial compensation.
+				</b></li>
+				
+				<li><b>Finally, by visiting this page and deciding to purchase the Smart Switch for the Line 6 DL4 you understand that we at Schoolcraft Specialties 
+				are in no way connected, affiliated, or are trying to imply affiliation with Line 6 and their products.</b></li>
+			</ul>
 		</div>
 	</div>
 	
-	<div class="row">
-		<div class="col-md-7">
-			<div class="panel panel-default">
-				<div class="panel-heading lead">Heavy Stainless Steel Bar Ends</div>
-				<div class="panel-body">
-					
-					<p>
-             Tired of your hands going numb from the "buzz" in your bars? These weighted bar ends increase the mass of your handle bar, killing the high frequency buzz that leads to fatigue and numbness.
-					</p>
-					
-				</div>
-			</div>
-    </div>
-      
-		<div class="col-md-5">
-      <div class="panel panel-default">
-				<div class="panel-heading lead">How to Buy</div>
-				<div class="panel-body">
-					
-					<p>
-             Since this is a small operation, I work with an order list. First you tell me what you want, then I go out to the garage and make it. When I've got them ready to ship, I'll send you an email requesting payment. This way I never have your money with nothing to show for it.
-					</p>
-          
-          <a type="button" class="btn btn-primary" href="{{url_for('barend_orders')}}">Place Your Order!</a>
-					
-				</div>
-			</div>
-		</div>
-	</div>
+	<script>
+		  $(function () {
+			$('#myTab a:last').tab('show')
+		  })
+	</script>
 	
 </div>
+
 
 
 {% endblock %}

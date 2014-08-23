@@ -1,3 +1,24 @@
+/* Global Styling */
+
+.testimonial h2{
+	font-size: 25px;
+	font-weight: bold;
+	color: #428BCA;
+}
+
+.testimonial h3{
+	font-size: 15px;
+	font-style: italic;
+	margin-top: 0px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	border-bottom: solid #C6C1C1;
+	border-width: 1px;
+}
+
+/* End Global Styling */
+
+
 
 /* Home Page Styling */
 .main-logo{
@@ -15,7 +36,6 @@
 }
 
 .home-container{
-	/* background-color: #0066CC; */
 	max-width: 90%;
 }
 
@@ -268,22 +288,6 @@
 	margin-top: 2%;
 }
 
-.testimonial h2{
-	font-size: 25px;
-	font-weight: bold;
-	color: #428BCA;
-}
-
-.testimonial h3{
-	font-size: 15px;
-	font-style: italic;
-	margin-top: 0px;
-	padding-left: 20px;
-	padding-bottom: 10px;
-	border-bottom: solid #C6C1C1;
-	border-width: 1px;
-}
-
 #disc{
 	margin-left: 2%;
 	margin-top: 2%;
@@ -291,6 +295,34 @@
 
 /* End Smart Switch Page Styling */
 
+
+/* Buzz Bomb Page Styling */
+
+#barend1{
+	height: 300px;
+	width: auto;
+	margin: 2.5% auto;
+}
+
+#barend2{
+	height: 300px;
+	width: auto;
+	margin: 2.5% auto;
+}
+
+#barend3{
+	height: 300px;
+	width: auto;
+	margin: 2.5% auto;
+}
+
+#barend4{
+	height: 300px;
+	width: auto;
+	margin: 2.5% auto;
+}
+
+/* End Buzz Bomb Page Styling */
 
 .rightpic{
 	width: 200px;
