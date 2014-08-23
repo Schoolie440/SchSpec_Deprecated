@@ -263,6 +263,27 @@
 	border-width: 1px;
 }
 
+#rt{
+	margin-left: 2%;
+	margin-top: 2%;
+}
+
+.testimonial h2{
+	font-size: 25px;
+	font-weight: bold;
+	color: #428BCA;
+}
+
+.testimonial h3{
+	font-size: 15px;
+	font-style: italic;
+	margin-top: 0px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	border-bottom: solid #C6C1C1;
+	border-width: 1px;
+}
+
 #disc{
 	margin-left: 2%;
 	margin-top: 2%;
