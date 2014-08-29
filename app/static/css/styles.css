@@ -1,10 +1,22 @@
+html,body{
+    height: 100%
+}
+
 
 /* Home Page Styling */
 .main-logo{
-	background: url(/static/img/logo.png) no-repeat;
-	background-size: 75% 75%;
-	background-position: center center;
-	height: 325px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;
+}
+
+.main-logo{
+	display: block;
+	max-width: 70%;
+    height: auto;
+    width: auto\9;
+	margin-right: auto;
+	margin-left: auto;
 	/* border-bottom: 1px solid #dbdbdb; */
 }
 
@@ -35,8 +47,9 @@
 }
 
 .container-wwa img{
-	height: 550px;
 	max-width: 100%;
+    height: auto;
+    width: auto\9;
 	margin: 0 auto;
 	padding: 20px 20px 20px 20px;
 }
