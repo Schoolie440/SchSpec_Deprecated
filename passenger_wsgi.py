@@ -19,5 +19,4 @@ elif RUN_TYPE == 'test':
 else: 
   print 'Environment invalid'
 
-SS_DATABASE_URL
 from app import app as application
