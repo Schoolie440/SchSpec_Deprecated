@@ -51,9 +51,9 @@ SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 
 # email server
 MAIL_SERVER='mail.schoolcraftspecialties.com'
-MAIL_PORT=25
-MAIL_USE_TLS = False
-MAIL_USE_SSL = True
+MAIL_PORT=26
+MAIL_USE_TLS = True
+MAIL_USE_SSL = False
 MAIL_USERNAME = 'admin@schoolcraftspecialties.com'
 MAIL_PASSWORD = 'specialties14'
 
