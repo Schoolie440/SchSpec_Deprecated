@@ -2,9 +2,9 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-if basedir == '/home/apps/SchSpec':
+if basedir == '/home/schoolcr/SchSpec':
   RUN_TYPE = 'production'
-elif basedir == '/home/apps/SchSpecTest':
+elif basedir == '/home/schoolcr/SchSpecTest':
   RUN_TYPE = 'test'
 else:
   RUN_TYPE = 'local'
