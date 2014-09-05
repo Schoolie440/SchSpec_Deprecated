@@ -55,7 +55,7 @@ MAIL_PORT=25
 MAIL_USE_TLS = False
 MAIL_USE_SSL = True
 MAIL_USERNAME = 'admin@schoolcraftspecialties.com'
-MAIL_PASSWORD = 'Amanda09'
+MAIL_PASSWORD = 'specialties14'
 
 
 # administrator list
