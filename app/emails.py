@@ -23,7 +23,7 @@ def order_confirmation(order):
         render_template("email_order_response.html"))
     send_email("Order Notification - Schoolcraft Specialties",
         ADMINS[0],
-        ['brian@schoolcraftspecialties.com',
-         'joe@schoolcraftspecialties.com'],
+        ['brian@schoolcraftspecialties.com'],
+         # 'joe@schoolcraftspecialties.com'],
         render_template("email_order_notification.txt", order = order),
         render_template("email_order_notification.html", order = order))

@@ -2,11 +2,17 @@
   <div class="panel panel-default">
     <div class="panel-heading"><p><strong>Order Number: {{order.id}}</strong></p></div>
     <div class="panel-body">
-      <p>Product: {{order.product}}</p>
-      <p>Date: {{momentjs(order.order_date).format('MMM Do YYYY, h:mm a')}}</p>
-      <p>Email: {{order.email}}</p>
-      <p>Comments: {{order.comments}}</p>
-      <p>Type: {{order.order_type}}</p>
+      <p><strong>Product:</strong> {{order.product}}</p>
+      <p><strong>Date:</strong> {{momentjs(order.order_date).format('MMM Do YYYY, h:mm a')}}</p>
+      <p><strong>Email:</strong> {{order.email}}</p>
+      <p><strong>Comments:</strong> {{order.comments}}</p>
+      <p><strong>Type:</strong> {{order.order_type}}</p>
+      <strong>Address: </strong>
+      <p>{{order.address1}}<br>
+      {% if (order.address2) != '' %} {{order.address2}}<br> {% endif %}
+      {{order.city}}, {{order.state}} {{order.postalCode}}<br>
+      {{order.country}}</p>
+      
     </div>
   </div>
 </div>
