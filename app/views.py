@@ -109,7 +109,7 @@ def login():
         session['remember_me'] = form.remember_me.data
         username = request.form['username']
         password = request.form['password']
-        registered_user = User.query.filter_by(username=username).first()
+        registered_user = User.query.filter(User.username == username).first()
         if registered_user:
           if registered_user.check_password(password):
             login_user(registered_user)
