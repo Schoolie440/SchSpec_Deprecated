@@ -9,6 +9,7 @@ elif basedir == '/home/apps/SchSpecTest':
 else:
   RUN_TYPE = 'local'
   
+BASE_DIR = basedir
 print '\n\nEnvironment: ' + RUN_TYPE + '\n\n'
 
 
