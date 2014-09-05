@@ -5,10 +5,11 @@
 <p>{{order.order_type}}</p>
 
 <h4>Address:</h4> 
-<p>{{order.address1}}</p>
-<p>{{order.address2}}</p>
-<p>{{order.city}}, {{order.state}} {{order.postalCode}}</p>
-<p>{{order.country}}</p>
+<p>{{order.name}}<br>
+{{order.address1}}<br>
+{% if (order.address2) != '' %} {{order.address2}}<br> {% endif %}
+{{order.city}}, {{order.state}} {{order.postalCode}}<br>
+{{order.country}}</p>
 
 <h4>Comments:</h4> 
 <p>{{order.comments}}</p>

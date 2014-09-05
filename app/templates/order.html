@@ -8,7 +8,8 @@
       <p><strong>Comments:</strong> {{order.comments}}</p>
       <p><strong>Type:</strong> {{order.order_type}}</p>
       <strong>Address: </strong>
-      <p>{{order.address1}}<br>
+      <p>{{order.name}}<br>
+      {{order.address1}}<br>
       {% if (order.address2) != '' %} {{order.address2}}<br> {% endif %}
       {{order.city}}, {{order.state}} {{order.postalCode}}<br>
       {{order.country}}</p>

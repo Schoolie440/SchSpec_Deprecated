@@ -73,6 +73,7 @@ def smartswitch_order():
   form = OrderForm()
   if form.validate_on_submit():
     order = Order(email = form.email.data, 
+            name = form.name.data,
             address1 = form.address1.data,
             address2 = form.address2.data,
             city = form.city.data,

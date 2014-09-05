@@ -74,6 +74,7 @@ class Order(db.Model):
     shipped = db.Column(db.Boolean)
     shipped_date = db.Column(db.DateTime)
     tracking = db.Column(db.String(80))
+    name = db.Column(db.String(80))
     address1 = db.Column(db.String(80))
     address2 = db.Column(db.String(80))
     city = db.Column(db.String(80))

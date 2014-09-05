@@ -13,6 +13,7 @@ class LoginForm(Form):
 class OrderForm(Form):
     email = TextField('Enter your email:', validators = [Required(), Email(message=u'Invalid email address.')])
     email2 = TextField('Confirm your email:', validators = [EqualTo('email', message='Email address must match')])
+    name = TextField('Name:', validators = [Required()])
     address1 = TextField('Address Line 1:', validators = [Required()])
     address2 = TextField('Address Line 2:', validators = [])
     city = TextField('City:', validators = [Required()])
