@@ -1,0 +1,190 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col-md-12">
+	<!--Title Jumbotron-->
+	<div >
+		<img src="/static/img/logo.png" class="main-logo">
+	</div>
+	<div>
+		<div class="home-container">
+			<div class="home-tagline">
+				<ul>
+					<li>
+						<h1>Our&nbsp;Projects, Our&nbsp;Passion:</h1>
+					</li>
+					<li>
+						<p>Welcome&nbsp;to Schoolcraft&nbsp;Specialties</p>
+					</li>
+				</ul>
+				<!-- <div style="clear: both"></div> -->
+			</div>
+		</div>
+<<<<<<< HEAD
+					
+		<!--Featured panel-->
+		<div class="col-md-8">
+			<div class="panel panel-primary">
+				<div class="panel-heading lead"><i>Featured Product: </i><a href="{{url_for('smartswitch')}}"><font color="white">The Smart Switch</font></a></div>
+				<div class="panel-body">
+					<ul>
+						<a href="{{url_for('smartswitch')}}"><img src="static/img/smartswitch.jpg" class="aboutimg"></a>
+						<h4>Joe's latest project:</h4>
+						<a href="{{url_for('smartswitch')}}"><h5>The Smart Switch for the Line 6 DL4</h5></a>
+						<p>Finally, there's an easy way to tap in dotted eighth notes on your DL4. This small (1x1 in.) circuit will completely enhance
+						the usability of your Line 6 DL4 unit. Based on the user friendly Arduino platform, the powerful ATtiny85 is comes pre-programmed 
+						to give you 1/4 note to dotted 1/8th note conversion seemlessly. Beyond that, The Smart Switch gives you the ability to simulate an 
+						expression pedal input, giving you two presets per delay type, for a total of 6 presets without the need of a clunky, space consuming external expression 
+						pedal.</p>
+					</ul>	
+=======
+	</div>
+	<div>
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+		  <li><a href="#wwa" role="tab" data-toggle="tab">Who We Are</a></li>
+		  <li class="active"><a href="#fp" role="tab" data-toggle="tab">Featured Product</a></li>
+		  <li><a href="#ci" role="tab" data-toggle="tab">Contact Info</a></li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+			
+			<div class="tab-pane fade" id="wwa">
+				<div class="container-wwa">
+					<div class="row">
+						<div class="col-md-7">
+							<h1>Who We Are</h1>
+							<p>
+								We are three brothers that spent our childhoods growing up together on a 33 acre patch
+								of land that we knew as home. Between shooting cicadas with BB guns, carving trails
+								through our woods for dirt bikes, and making ziplines in our barn, we always found
+								that tinkering with stuff was a good way to spend our time. Today, the projects are
+								a little bit bigger, but the passion for exploration and productivity is the same.
+							</p>
+							<p>
+								Currently, we are building this site to present some of our projects to the world.
+								We hope to operate our own engineering consulting business someday so we figured
+								that successfully running a website would be a good start. We are exploring the idea
+								of becoming an LLC in the near future to further legitimize our business. For right
+								now though, we are happy trying to give back a bit to the open source community that
+								has given us so much. Check out the <a href="{{url_for('about')}}">About Us</a> page
+								to find out more.
+							</p>
+						</div>
+						<div class="col-md-5">
+							<img src="static/img/brothers2.jpg" id="brothersimg">
+						</div>	
+					</div>
+>>>>>>> master
+				</div>
+			</div>
+		  
+			<div class="tab-pane fade in active" id="fp">
+				<div class="container-fp">
+					<div class="row">
+						<div class="col-md-7">
+							<a href="{{url_for('smartswitch')}}"><h1>The Smart Switch</h1></a>
+							<p>
+								Finally, there's an easy way to tap in dotted eighth notes on your DL4. This small
+								(1x1 in.) circuit will completely enhance the usability of your Line 6 DL4 unit.
+								Based on the user friendly Arduino platform, the powerful ATtiny85 comes pre-programmed
+								to give you 1/4 note to dotted 1/8th note conversion seamlessly. Beyond that, The Smart
+								Switch gives you the ability to simulate an expression pedal input, giving you two presets
+								per delay type, for a total of 6 presets without the need of a clunky, space consuming
+								external expression pedal. Learn more about this mod <a href="{{url_for('smartswitch')}}">here</a>.
+							</p>
+						</div>
+						
+						<div class="col-md-5">
+							<!--Image Carousel-->
+							<div id="carousel-fp" class="carousel slide" data-ride="carousel">
+							  <!-- Indicators -->
+							  <ol class="carousel-indicators">
+								<li data-target="#carousel-fp" data-slide-to="0" class="active"></li>
+								<li data-target="#carousel-fp" data-slide-to="1"></li>
+								<li data-target="#carousel-fp" data-slide-to="2"></li>
+							  </ol>
+
+							  <!-- Wrapper for slides -->
+							  <div class="carousel-inner">
+								<div class="item active">
+								  <img id="dl4main" src="static/img/dl4main.jpg" alt="">
+								  <!-- <div class="carousel-caption">
+									...
+								  </div> -->
+								</div>
+								
+								<div class="item">
+								  <img id="sspcb" src="static/img/smartswitch.jpg" alt="static/img/smartswitch.jpg">
+								  <!-- <div class="carousel-caption">
+									...
+								  </div> -->
+								</div>
+								
+								<div class="item">
+								  <img id="ssparts" src="static/img/smartswitchparts.jpg" alt="">
+								  <!-- <div class="carousel-caption">
+									...
+								  </div> -->
+								</div>
+								
+							  </div>
+
+							  <!-- Controls -->
+							  <a class="left carousel-control" href="#carousel-fp" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+							  </a>
+							  <a class="right carousel-control" href="#carousel-fp" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							  </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tab-pane fade" id="ci">
+				<div class="container-ci">
+					<h1>Contact Information</h1>
+					<p>
+						If for any reason you need to contact us, please feel free to do so at the following addresses:
+							<ul>
+								<li>Joe Schoolcraft: joe@schoolcraftspecialties.com - The Smart Switch</li>
+								<li>Brian Schoolcraft: brian@schoolcraftspecialties.com - Buzz Bombs</li>
+							</ul>
+					</p>
+				</div>
+			</div>
+		  
+		</div>
+		
+		<script>
+		  $(function () {
+			$('#myTab a:last').tab('show')
+		  })
+		</script>
+		
+	</div>
+	<!-- <div class="info-place">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Who We Are</h2>
+					<img src="static/img/brothers2.jpg">
+				</div>
+				<div class="col-md-4">
+					<h2>What We Do</h2>
+					<img src="/static/img/bar_end_header.jpg">
+				</div>
+				<div class="col-md-4">
+					<h2>Featured Product</h2>
+					<img src="static/img/dl4main.jpg">
+				</div>
+			</div>
+		</div>
+	</div> -->
+</div>
+{% endblock %}
